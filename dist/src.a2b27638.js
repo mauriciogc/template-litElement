@@ -28719,7 +28719,7 @@ var _litElement = require("lit-element");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral([""]);
+  var data = _taggedTemplateLiteral(["\n        :host {\n            display: block;\n            font-family: 'Roboto', 'Noto', sans-serif;\n        }\n        #main-container {\n            width: 100%;\n        }\n        #text-container {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n            justify-content: center;\n            padding: 2rem 0rem;\n        }\n        #text-container > * {\n            margin: 1rem;\n        }\n        #image-container {\n            height: 320px;\n            display: flex;\n            justify-content: center;\n            position: relative;\n            overflow: hidden;\n        }\n        #shop-button {\n            background-color: #FFF;\n            border: none;\n        }\n        #shop-button > * {\n            display: inline-block;\n            box-sizing: border-box;\n            border: 2px solid #000;\n            background-color: #FFF;\n            font-size: 14px;\n            font-weight: 500;\n            color: var(--app-primary-color);\n            margin: 0;\n            padding: 8px 44px;\n            text-align: center;\n            text-decoration: none;\n            text-transform: uppercase;\n            border-radius: 0;\n            outline: none;\n        }\n        "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -28729,7 +28729,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n        <div id=\"main-container\">\n            <img />\n        </div>\n        "]);
+  var data = _taggedTemplateLiteral(["\n        <div id=\"main-container\">\n            <div id=\"image-container\">\n                <img src=", " >\n            </div>\n            <div id=\"text-container\">\n                <div id=\"title\">", "</div>\n                <button id=\"shop-button\" @click=", ">\n                    <a href=\"/\">", "</a>\n                </button>\n            </div>\n        </div>\n        "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -28783,15 +28783,36 @@ var AppHome = /*#__PURE__*/function (_LitElement) {
   }]);
 
   function AppHome() {
+    var _this;
+
     _classCallCheck(this, AppHome);
 
-    return _super.call(this);
+    _this = _super.call(this);
+    _this.image = '/';
+    _this.title = '';
+    _this.button = {
+      name: '',
+      event: 'button-clicked'
+    };
+    return _this;
   }
 
   _createClass(AppHome, [{
+    key: "dispatch",
+    value: function dispatch(eventName) {
+      this.dispatchEvent(new CustomEvent(eventName, {
+        bubbles: true,
+        composed: true
+      }));
+    }
+  }, {
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject());
+      var _this2 = this;
+
+      return (0, _litElement.html)(_templateObject(), this.image, this.title, function () {
+        _this2.dispatch(_this2.button.event);
+      }, this.button.name);
     }
   }], [{
     key: "styles",
@@ -28816,7 +28837,7 @@ require("./components/app-home");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n\t\t:host {\n\t\t\tmax-width: 100%;\n\t\t}\n\t\t"]);
+  var data = _taggedTemplateLiteral(["\n\t\t:host {\n\t\t\tmax-width: 100%;\n\t\t}\n\t\t.half-width {\n\t\t\twidth: 50%;\n\t\t}\n\t\t.wrap-container {\n\t\t\tdisplay: flex;\n\t\t\tflex-wrap: wrap;\n\t\t}\n\t\t"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -28826,7 +28847,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\t\t\t<div>\n\t\t\t\t<app-header \n\t\t\t\t.title=", "\n\t\t\t\t.leftIcon=", "\n\t\t\t\t.rightIcon=", "\n\t\t\t\t.menuOptions=", "></app-header>\n\t\t\t</div>\n\t\t"]);
+  var data = _taggedTemplateLiteral(["\n\t\t\t<div>\n\t\t\t\t<app-header \n\t\t\t\t.title=", "\n\t\t\t\t.leftIcon=", "\n\t\t\t\t.rightIcon=", "\n\t\t\t\t.menuOptions=", "></app-header>\n\t\t\t\t<app-home \n\t\t\t\t.image=", "\n\t\t\t\t.title=", "\n\t\t\t\t.button=", "></app-home>\n\t\t\t\t<app-home \n\t\t\t\t.image=", "\n\t\t\t\t.title=", "\n\t\t\t\t.button=", "></app-home>\n\t\t\t\t<div class=\"wrap-container\">\n\t\t\t\t\t<app-home\n\t\t\t\t\tclass=\"half-width\"\n\t\t\t\t\t.image=", "\n\t\t\t\t\t.title=", "\n\t\t\t\t\t.button=", "></app-home>\n\t\t\t\t\t<app-home \n\t\t\t\t\tclass=\"half-width\"\n\t\t\t\t\t.image=", "\n\t\t\t\t\t.title=", "\n\t\t\t\t\t.button=", "></app-home>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -28868,6 +28889,18 @@ var MyApp = /*#__PURE__*/function (_LitElement) {
       return {
         appHeaderProps: {
           type: Object
+        },
+        appHomeA: {
+          type: Object
+        },
+        appHomeB: {
+          type: Object
+        },
+        appHomeC: {
+          type: Object
+        },
+        appHomeD: {
+          type: Object
         }
       };
     }
@@ -28903,13 +28936,45 @@ var MyApp = /*#__PURE__*/function (_LitElement) {
         link: 'link-4'
       }]
     };
+    _this.appHomeA = {
+      image: 'https://shop.polymer-project.org/esm-bundled/images/mens_outerwear.jpg',
+      title: "Men's Outerwear",
+      button: {
+        name: 'SHOP NOW',
+        event: 'ap-home-button-clicked'
+      }
+    };
+    _this.appHomeB = {
+      image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_outerwear.jpg',
+      title: "Ladies Outerwear",
+      button: {
+        name: 'SHOP NOW',
+        event: 'ap-home-button-clicked'
+      }
+    };
+    _this.appHomeC = {
+      image: 'https://shop.polymer-project.org/esm-bundled/images/mens_tshirts.jpg',
+      title: "Men's T-Shirts",
+      button: {
+        name: 'SHOP NOW',
+        event: 'ap-home-button-clicked'
+      }
+    };
+    _this.appHomeD = {
+      image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_tshirts.jpg',
+      title: "Ladies T-Shirts",
+      button: {
+        name: 'SHOP NOW',
+        event: 'ap-home-button-clicked'
+      }
+    };
     return _this;
   }
 
   _createClass(MyApp, [{
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject(), this.appHeaderProps.title, this.appHeaderProps.leftIcon, this.appHeaderProps.rightIcon, this.appHeaderProps.menuOptions);
+      return (0, _litElement.html)(_templateObject(), this.appHeaderProps.title, this.appHeaderProps.leftIcon, this.appHeaderProps.rightIcon, this.appHeaderProps.menuOptions, this.appHomeA.image, this.appHomeA.title, this.appHomeA.button, this.appHomeB.image, this.appHomeB.title, this.appHomeB.button, this.appHomeC.image, this.appHomeC.title, this.appHomeC.button, this.appHomeD.image, this.appHomeD.title, this.appHomeD.button);
     }
   }], [{
     key: "styles",
