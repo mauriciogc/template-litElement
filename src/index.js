@@ -5,6 +5,7 @@ import { LitElement, html, css } from "lit-element";
 import './components/app-header';
 import './components/app-home';
 import './components/app-router';
+import './components/app-catalog';
 
 // Import tools
 import { router } from 'lit-element-router';
@@ -77,10 +78,6 @@ class MyApp extends router(LitElement) {
 		.half-width {
 			width: 50%;
 		}
-		.wrap-container {
-			display: flex;
-			flex-wrap: wrap;
-		}
 		`;
 	}
 
@@ -93,7 +90,7 @@ class MyApp extends router(LitElement) {
 				.menuOptions=${this.appHeaderProps.menuOptions}></app-header>
 			<app-router active-route=${this.route}>
 				<app-home route='home'></app-home>
-				<h2 route='mens_outerwear'>mens_outerwear</h2>
+				<app-catalog route='mens_outerwear'></app-catalog>
 			</app-router>
 		`;
 	}

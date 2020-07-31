@@ -29240,7 +29240,77 @@ var AppRouter = /*#__PURE__*/function (_outlet) {
 }((0, _litElementRouter.outlet)(_litElement.LitElement));
 
 customElements.define("app-router", AppRouter);
-},{"lit-element":"node_modules/lit-element/lit-element.js","lit-element-router":"node_modules/lit-element-router/lit-element-router.js"}],"src/index.js":[function(require,module,exports) {
+},{"lit-element":"node_modules/lit-element/lit-element.js","lit-element-router":"node_modules/lit-element-router/lit-element-router.js"}],"src/components/app-catalog.js":[function(require,module,exports) {
+"use strict";
+
+var _litElement = require("lit-element");
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["<p>app-catalog</p>"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var AppCatalog = /*#__PURE__*/function (_LitElement) {
+  _inherits(AppCatalog, _LitElement);
+
+  var _super = _createSuper(AppCatalog);
+
+  function AppCatalog() {
+    _classCallCheck(this, AppCatalog);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(AppCatalog, [{
+    key: "render",
+    value: function render() {
+      return (0, _litElement.html)(_templateObject());
+    }
+  }], [{
+    key: "properties",
+    get: function get() {
+      return {
+        message: {
+          type: String
+        }
+      };
+    }
+  }]);
+
+  return AppCatalog;
+}(_litElement.LitElement);
+
+customElements.define("app-catalog", AppCatalog);
+},{"lit-element":"node_modules/lit-element/lit-element.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _litElement = require("lit-element");
@@ -29251,12 +29321,14 @@ require("./components/app-home");
 
 require("./components/app-router");
 
+require("./components/app-catalog");
+
 var _litElementRouter = require("lit-element-router");
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n\t\t:host {\n\t\t\tmax-width: 100%;\n\t\t}\n\t\t.half-width {\n\t\t\twidth: 50%;\n\t\t}\n\t\t.wrap-container {\n\t\t\tdisplay: flex;\n\t\t\tflex-wrap: wrap;\n\t\t}\n\t\t"]);
+  var data = _taggedTemplateLiteral(["\n\t\t:host {\n\t\t\tmax-width: 100%;\n\t\t}\n\t\t.half-width {\n\t\t\twidth: 50%;\n\t\t}\n\t\t"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -29266,7 +29338,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\t\t\t<app-header \n\t\t\t\t.title=", "\n\t\t\t\t.leftIcon=", "\n\t\t\t\t.rightIcon=", "\n\t\t\t\t.menuOptions=", "></app-header>\n\t\t\t<app-router active-route=", ">\n\t\t\t\t<app-home route='home'></app-home>\n\t\t\t\t<h2 route='mens_outerwear'>mens_outerwear</h2>\n\t\t\t</app-router>\n\t\t"]);
+  var data = _taggedTemplateLiteral(["\n\t\t\t<app-header \n\t\t\t\t.title=", "\n\t\t\t\t.leftIcon=", "\n\t\t\t\t.rightIcon=", "\n\t\t\t\t.menuOptions=", "></app-header>\n\t\t\t<app-router active-route=", ">\n\t\t\t\t<app-home route='home'></app-home>\n\t\t\t\t<app-catalog route='mens_outerwear'></app-catalog>\n\t\t\t</app-router>\n\t\t"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -29396,7 +29468,7 @@ var MyApp = /*#__PURE__*/function (_router) {
 }((0, _litElementRouter.router)(_litElement.LitElement));
 
 customElements.define("my-app", MyApp);
-},{"lit-element":"node_modules/lit-element/lit-element.js","./components/app-header":"src/components/app-header.js","./components/app-home":"src/components/app-home.js","./components/app-router":"src/components/app-router.js","lit-element-router":"node_modules/lit-element-router/lit-element-router.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"lit-element":"node_modules/lit-element/lit-element.js","./components/app-header":"src/components/app-header.js","./components/app-home":"src/components/app-home.js","./components/app-router":"src/components/app-router.js","./components/app-catalog":"src/components/app-catalog.js","lit-element-router":"node_modules/lit-element-router/lit-element-router.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
