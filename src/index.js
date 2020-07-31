@@ -4,19 +4,23 @@ import { LitElement, html, css } from "lit-element";
 // import app components
 import './components/app-header';
 import './components/app-home';
+import './components/app-router';
 
-class MyApp extends LitElement {
+// Import tools
+import { router } from 'lit-element-router';
+
+class MyApp extends router(LitElement) {
 	static get properties() {
 		return {
 			appHeaderProps: {type: Object},
-			appHomeA: {type: Object},
-			appHomeB: {type: Object},
-			appHomeC: {type: Object},
-			appHomeD: {type: Object}
+			route: { type: String },
+			params: { type: Object },
+			query: { type: Object }
 		};
 	}
 	constructor() {
 		super();
+		this.route = '';
 		this.appHeaderProps = {
 			title: 'SHOP',
 			leftIcon: {
@@ -41,39 +45,29 @@ class MyApp extends LitElement {
 				link: 'link-4'
 			}]
 		};
-		this.appHomeA = {
-			image: 'https://shop.polymer-project.org/esm-bundled/images/mens_outerwear.jpg',
-			title: "Men's Outerwear",
-			button: {
-				name: 'SHOP NOW',
-				event: 'ap-home-button-clicked'
-			}
-		}
-		this.appHomeB = {
-			image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_outerwear.jpg',
-			title: "Ladies Outerwear",
-			button: {
-				name: 'SHOP NOW',
-				event: 'ap-home-button-clicked'
-			}
-		}
-		this.appHomeC = {
-			image: 'https://shop.polymer-project.org/esm-bundled/images/mens_tshirts.jpg',
-			title: "Men's T-Shirts",
-			button: {
-				name: 'SHOP NOW',
-				event: 'ap-home-button-clicked'
-			}
-		}
-		this.appHomeD = {
-			image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_tshirts.jpg',
-			title: "Ladies T-Shirts",
-			button: {
-				name: 'SHOP NOW',
-				event: 'ap-home-button-clicked'
-			}
-		}
 	}
+
+	// ------------------------
+	// Using lit-element-router
+	// ------------------------
+	static get routes() {
+		return [{
+			name: 'home',
+			pattern: '',
+		}, {
+			name: 'mens_outerwear',
+			pattern: 'mens_outerwear/'
+		}, {
+			name: 'not-found',
+			pattern: '*'
+		}]
+	}
+
+	router(route, params, query, data) {
+		this.route = route;
+		this.params = params;
+		this.query = query;
+	  }
 
 	static get styles() {
 		return css`
@@ -92,33 +86,15 @@ class MyApp extends LitElement {
 
 	render() {
 		return html`
-			<div>
-				<app-header 
+			<app-header 
 				.title=${this.appHeaderProps.title}
 				.leftIcon=${this.appHeaderProps.leftIcon}
 				.rightIcon=${this.appHeaderProps.rightIcon}
 				.menuOptions=${this.appHeaderProps.menuOptions}></app-header>
-				<app-home 
-				.image=${this.appHomeA.image}
-				.title=${this.appHomeA.title}
-				.button=${this.appHomeA.button}></app-home>
-				<app-home 
-				.image=${this.appHomeB.image}
-				.title=${this.appHomeB.title}
-				.button=${this.appHomeB.button}></app-home>
-				<div class="wrap-container">
-					<app-home
-					class="half-width"
-					.image=${this.appHomeC.image}
-					.title=${this.appHomeC.title}
-					.button=${this.appHomeC.button}></app-home>
-					<app-home 
-					class="half-width"
-					.image=${this.appHomeD.image}
-					.title=${this.appHomeD.title}
-					.button=${this.appHomeD.button}></app-home>
-				</div>
-			</div>
+			<app-router active-route=${this.route}>
+				<app-home route='home'></app-home>
+				<h2 route='mens_outerwear'>mens_outerwear</h2>
+			</app-router>
 		`;
 	}
 }
