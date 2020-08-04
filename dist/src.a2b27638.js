@@ -29240,15 +29240,136 @@ var AppRouter = /*#__PURE__*/function (_outlet) {
 }((0, _litElementRouter.outlet)(_litElement.LitElement));
 
 customElements.define("app-router", AppRouter);
-},{"lit-element":"node_modules/lit-element/lit-element.js","lit-element-router":"node_modules/lit-element-router/lit-element-router.js"}],"src/components/app-catalog.js":[function(require,module,exports) {
+},{"lit-element":"node_modules/lit-element/lit-element.js","lit-element-router":"node_modules/lit-element-router/lit-element-router.js"}],"src/components/catalog-item.js":[function(require,module,exports) {
 "use strict";
 
 var _litElement = require("lit-element");
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n        :host {\n            display: flex;\n            justify-content: center;\n        }\n        #main-container {\n            max-width: 300px;\n        }\n        #text-container {\n            font-size: 12px;\n            text-align: center;\n            margin-top: 2rem;\n        }\n        #name {\n            font-weight: bold;\n        }\n        #price {\n            color: #757575;\n            margin: 0.5rem 0rem;\n        }\n        "]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["<p>app-catalog</p>"]);
+  var data = _taggedTemplateLiteral(["\n            <div id=\"main-container\">\n                <div id=\"image-container\">\n                    <img src=\"", "\" >\n                </div>\n                <div id=\"text-container\">\n                    <div id='name'>\n                        ", "\n                    </div>\n                    <div id='price'>\n                        $", "\n                    </div>\n                </div>\n            </div>\n            "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var CatalogItem = /*#__PURE__*/function (_LitElement) {
+  _inherits(CatalogItem, _LitElement);
+
+  var _super = _createSuper(CatalogItem);
+
+  _createClass(CatalogItem, null, [{
+    key: "properties",
+    get: function get() {
+      return {
+        image: {
+          type: String
+        },
+        name: {
+          type: String
+        },
+        price: {
+          type: Number
+        }
+      };
+    }
+  }]);
+
+  function CatalogItem() {
+    var _this;
+
+    _classCallCheck(this, CatalogItem);
+
+    _this = _super.call(this);
+    _this.image = '/';
+    _this.name = '';
+    _this.price = 0;
+    return _this;
+  }
+
+  _createClass(CatalogItem, [{
+    key: "render",
+    value: function render() {
+      return (0, _litElement.html)(_templateObject(), this.image, this.name, this.price);
+    }
+  }], [{
+    key: "styles",
+    get: function get() {
+      return (0, _litElement.css)(_templateObject2());
+    }
+  }]);
+
+  return CatalogItem;
+}(_litElement.LitElement);
+
+customElements.define("catalog-item", CatalogItem);
+},{"lit-element":"node_modules/lit-element/lit-element.js"}],"src/components/app-catalog.js":[function(require,module,exports) {
+"use strict";
+
+var _litElement = require("lit-element");
+
+require("./catalog-item");
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n        :host {\n            width: 100%;\n            font-family: 'Roboto', 'Noto', sans-serif;\n        }\n        #image-container {\n            height: 320px;\n            display: flex;\n            justify-content: center;\n            position: relative;\n            overflow: hidden;\n        }\n        #text-container {\n            padding: 1.5rem;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n            justify-content: center;\n        }\n        #items-number {\n            color: #757575;\n            font-size: 12px;\n            margin: 0.5rem 0rem;\n\n        }\n        #items-container{\n            display: flex;\n            flex-wrap: wrap;\n            justify-content: space-around;\n        }\n\n        .catalog-item {\n            margin: 1rem 0rem;\n            width: 30%\n        }\n        "]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n                <catalog-item\n                class=\"catalog-item\"\n                .image=", "\n                .name=", "\n                .price=", "></catalog-item>\n                "]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n        <div id=\"main-container\">\n            <div id='image-container'>\n                <img src=\"", "\" >\n            </div>\n            <div id=\"text-container\">\n                <div>", "</div>\n                <div id=\"items-number\">(", ") items</div>\n            </div>\n            <div id=\"items-container\">\n                ", "\n            </div>\n        </div>\n        "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -29284,25 +29405,50 @@ var AppCatalog = /*#__PURE__*/function (_LitElement) {
 
   var _super = _createSuper(AppCatalog);
 
+  _createClass(AppCatalog, null, [{
+    key: "properties",
+    get: function get() {
+      return {
+        title: {
+          type: String
+        },
+        image: {
+          type: String
+        },
+        catalogItems: {
+          type: Array
+        }
+      };
+    }
+  }]);
+
   function AppCatalog() {
+    var _this;
+
     _classCallCheck(this, AppCatalog);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this);
+    _this.title = '';
+    _this.image = '/';
+    _this.catalogItems = [{
+      image: '/',
+      name: "Men's Tech Shell Full-Zip",
+      price: 50.20
+    }];
+    return _this;
   }
 
   _createClass(AppCatalog, [{
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject());
+      return (0, _litElement.html)(_templateObject(), this.image, this.title, this.catalogItems.length, this.catalogItems.map(function (item) {
+        return (0, _litElement.html)(_templateObject2(), item.image, item.name, item.price);
+      }));
     }
   }], [{
-    key: "properties",
+    key: "styles",
     get: function get() {
-      return {
-        message: {
-          type: String
-        }
-      };
+      return (0, _litElement.css)(_templateObject3());
     }
   }]);
 
@@ -29310,7 +29456,7 @@ var AppCatalog = /*#__PURE__*/function (_LitElement) {
 }(_litElement.LitElement);
 
 customElements.define("app-catalog", AppCatalog);
-},{"lit-element":"node_modules/lit-element/lit-element.js"}],"src/index.js":[function(require,module,exports) {
+},{"lit-element":"node_modules/lit-element/lit-element.js","./catalog-item":"src/components/catalog-item.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _litElement = require("lit-element");
@@ -29338,7 +29484,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\t\t\t<app-header \n\t\t\t\t.title=", "\n\t\t\t\t.leftIcon=", "\n\t\t\t\t.rightIcon=", "\n\t\t\t\t.menuOptions=", "></app-header>\n\t\t\t<app-router active-route=", ">\n\t\t\t\t<app-home route='home'></app-home>\n\t\t\t\t<app-catalog route='mens_outerwear'></app-catalog>\n\t\t\t</app-router>\n\t\t"]);
+  var data = _taggedTemplateLiteral(["\n\t\t\t<app-header \n\t\t\t\t.title=", "\n\t\t\t\t.leftIcon=", "\n\t\t\t\t.rightIcon=", "\n\t\t\t\t.menuOptions=", "></app-header>\n\t\t\t<app-router active-route=", ">\n\t\t\t\t<app-home route='home'></app-home>\n\t\t\t\t<app-catalog \n\t\t\t\troute='mens_outerwear'\n\t\t\t\t.image=", "\n\t\t\t\t.title=", "\n\t\t\t\t.catalogItems=", "></app-catalog>\n\t\t\t</app-router>\n\t\t"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -29389,6 +29535,18 @@ var MyApp = /*#__PURE__*/function (_router) {
         },
         query: {
           type: Object
+        },
+        appCatalogA: {
+          type: Object
+        },
+        appCatalogB: {
+          type: Object
+        },
+        appCatalogC: {
+          type: Object
+        },
+        appCatalogD: {
+          type: Object
         }
       };
     }
@@ -29425,6 +29583,41 @@ var MyApp = /*#__PURE__*/function (_router) {
         link: 'link-4'
       }]
     };
+    _this.appCatalogA = {
+      title: "Men's Outerwear",
+      image: 'https://shop.polymer-project.org/esm-bundled/images/mens_outerwear.jpg',
+      catalogItems: [{
+        name: "Men's Tech Shell Full-Zip",
+        price: 50.20,
+        image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+        url: '/'
+      }, {
+        name: "Men's Tech Shell Full-Zip",
+        price: 50.20,
+        image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+        url: '/'
+      }, {
+        name: "Men's Tech Shell Full-Zip",
+        price: 50.20,
+        image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+        url: '/'
+      }, {
+        name: "Men's Tech Shell Full-Zip",
+        price: 50.20,
+        image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+        url: '/'
+      }, {
+        name: "Men's Tech Shell Full-Zip",
+        price: 50.20,
+        image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+        url: '/'
+      }, {
+        name: "Men's Tech Shell Full-Zip",
+        price: 50.20,
+        image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+        url: '/'
+      }]
+    };
     return _this;
   } // ------------------------
   // Using lit-element-router
@@ -29441,7 +29634,7 @@ var MyApp = /*#__PURE__*/function (_router) {
   }, {
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject(), this.appHeaderProps.title, this.appHeaderProps.leftIcon, this.appHeaderProps.rightIcon, this.appHeaderProps.menuOptions, this.route);
+      return (0, _litElement.html)(_templateObject(), this.appHeaderProps.title, this.appHeaderProps.leftIcon, this.appHeaderProps.rightIcon, this.appHeaderProps.menuOptions, this.route, this.appCatalogA.image, this.appCatalogA.title, this.appCatalogA.catalogItems);
     }
   }], [{
     key: "routes",
@@ -29496,7 +29689,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64655" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56938" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
