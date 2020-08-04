@@ -5,6 +5,7 @@ import { LitElement, html, css } from "lit-element";
 import './components/app-header';
 import './components/app-home';
 import './components/app-router';
+import './components/app-catalog';
 
 // Import tools
 import { router } from 'lit-element-router';
@@ -15,7 +16,11 @@ class MyApp extends router(LitElement) {
 			appHeaderProps: {type: Object},
 			route: { type: String },
 			params: { type: Object },
-			query: { type: Object }
+			query: { type: Object },
+			appCatalogA: {type: Object},
+			appCatalogB: {type: Object},
+			appCatalogC: {type: Object},
+			appCatalogD: {type: Object}
 		};
 	}
 	constructor() {
@@ -45,6 +50,41 @@ class MyApp extends router(LitElement) {
 				link: 'link-4'
 			}]
 		};
+		this.appCatalogA = {
+			title: "Men's Outerwear",
+			image: 'https://shop.polymer-project.org/esm-bundled/images/mens_outerwear.jpg',
+			catalogItems: [{
+				name: "Men's Tech Shell Full-Zip",
+				price: 50.20,
+				image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+				url: '/',
+			}, {
+				name: "Men's Tech Shell Full-Zip",
+				price: 50.20,
+				image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+				url: '/',
+			}, {
+				name: "Men's Tech Shell Full-Zip",
+				price: 50.20,
+				image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+				url: '/',
+			}, {
+				name: "Men's Tech Shell Full-Zip",
+				price: 50.20,
+				image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+				url: '/',
+			}, {
+				name: "Men's Tech Shell Full-Zip",
+				price: 50.20,
+				image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+				url: '/',
+			}, {
+				name: "Men's Tech Shell Full-Zip",
+				price: 50.20,
+				image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+				url: '/',
+			}]
+		}
 	}
 
 	// ------------------------
@@ -77,10 +117,6 @@ class MyApp extends router(LitElement) {
 		.half-width {
 			width: 50%;
 		}
-		.wrap-container {
-			display: flex;
-			flex-wrap: wrap;
-		}
 		`;
 	}
 
@@ -93,7 +129,11 @@ class MyApp extends router(LitElement) {
 				.menuOptions=${this.appHeaderProps.menuOptions}></app-header>
 			<app-router active-route=${this.route}>
 				<app-home route='home'></app-home>
-				<h2 route='mens_outerwear'>mens_outerwear</h2>
+				<app-catalog 
+				route='mens_outerwear'
+				.image=${this.appCatalogA.image}
+				.title=${this.appCatalogA.title}
+				.catalogItems=${this.appCatalogA.catalogItems}></app-catalog>
 			</app-router>
 		`;
 	}
