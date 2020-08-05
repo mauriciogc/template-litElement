@@ -57,7 +57,7 @@ class AppToolbar extends LitElement {
                 <paper-icon-button 
                 @click=${() => {this.dispatch(this.leftIcon.event)}} 
                 icon=${this.leftIcon.name}></paper-icon-button>
-                ` : null}
+                ` : ''}
             </div>
             <div id="title">${this.title ? this.title : html``}</div>
             <div id="right-icon">
@@ -65,7 +65,7 @@ class AppToolbar extends LitElement {
                 <paper-icon-button 
                 @click=${() => {this.dispatch(this.rightIcon.event)}} 
                 icon=${this.rightIcon.name}></paper-icon-button>
-                ` : null}
+                ` : ''}
             </div>
         </div>
         `;

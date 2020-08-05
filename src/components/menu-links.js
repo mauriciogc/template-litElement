@@ -29,15 +29,14 @@ class MenuLinks extends LitElement {
 
     constructor() {
         super();
-        this.options = [];
     }
 
     render() {
         return html`
         <div id="main-container">
-            ${this.options.map(option => html`<menu-link 
+            ${typeof this.options === 'object' && this.options.length ? this.options.map(option => html`<menu-link 
             .name=${option.name}
-            .link=${option.link}></menu-link>`)}
+            .event=${option.event}></menu-link>`) : ''}
         </div>
         `;
     }

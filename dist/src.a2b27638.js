@@ -28417,9 +28417,9 @@ var AppToolbar = /*#__PURE__*/function (_LitElement) {
 
       return (0, _litElement.html)(_templateObject2(), this.leftIcon ? (0, _litElement.html)(_templateObject3(), function () {
         _this.dispatch(_this.leftIcon.event);
-      }, this.leftIcon.name) : null, this.title ? this.title : (0, _litElement.html)(_templateObject4()), this.rightIcon ? (0, _litElement.html)(_templateObject5(), function () {
+      }, this.leftIcon.name) : '', this.title ? this.title : (0, _litElement.html)(_templateObject4()), this.rightIcon ? (0, _litElement.html)(_templateObject5(), function () {
         _this.dispatch(_this.rightIcon.event);
-      }, this.rightIcon.name) : null);
+      }, this.rightIcon.name) : '');
     }
   }]);
 
@@ -28434,8 +28434,18 @@ var _litElement = require("lit-element");
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n        :host {\n            display: block\n        }\n        #main-container {\n            cursor: pointer;\n            text-align: center;\n            padding: 0.7rem 0.4rem; \n        }\n        #main-container div {\n            color: black;\n            text-decoration: none;\n        }\n        "]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n        :host {\n            display: block\n        }\n        #main-container {\n            cursor: pointer;\n            text-align: center;\n            padding: 0.7rem 0.4rem; \n        }\n        #main-container a {\n            color: black;\n            text-decoration: none;\n        }\n        "]);
+  var data = _taggedTemplateLiteral(["\n            <div @click=", ">", "</div>\n            "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -28445,7 +28455,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n        <div id=\"main-container\">\n            <a @click=", " href=", ">", "</a>\n        </div>\n        "]);
+  var data = _taggedTemplateLiteral(["\n        <div id=\"main-container\">\n            ", "\n        </div>\n        "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -28488,8 +28498,8 @@ var MenuLink = /*#__PURE__*/function (_LitElement) {
         name: {
           Type: String
         },
-        link: {
-          type: Object
+        event: {
+          type: String
         },
         active: {
           type: Boolean,
@@ -28510,19 +28520,28 @@ var MenuLink = /*#__PURE__*/function (_LitElement) {
   }
 
   _createClass(MenuLink, [{
+    key: "dispatch",
+    value: function dispatch() {
+      this.dispatchEvent(new CustomEvent(this.event, {
+        bubbles: true,
+        composed: true
+      }));
+    }
+  }, {
     key: "handleClick",
     value: function handleClick() {
-      this.active = !this.active; // this.dispatch();
+      this.active = !this.active;
+      this.dispatch();
     }
   }, {
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject(), this.handleClick, this.link, this.name);
+      return (0, _litElement.html)(_templateObject(), this.event && this.name ? (0, _litElement.html)(_templateObject2(), this.handleClick, this.name) : '');
     }
   }], [{
     key: "styles",
     get: function get() {
-      return (0, _litElement.css)(_templateObject2());
+      return (0, _litElement.css)(_templateObject3());
     }
   }]);
 
@@ -28537,10 +28556,8 @@ var _litElement = require("lit-element");
 
 require("./menu-link");
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["<menu-link \n            .name=", "\n            .link=", "></menu-link>"]);
+  var data = _taggedTemplateLiteral(["<menu-link \n            .name=", "\n            .event=", "></menu-link>"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -28548,6 +28565,8 @@ function _templateObject3() {
 
   return data;
 }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject2() {
   var data = _taggedTemplateLiteral(["\n        <div id=\"main-container\">\n            ", "\n        </div>\n        "]);
@@ -28613,21 +28632,17 @@ var MenuLinks = /*#__PURE__*/function (_LitElement) {
   }]);
 
   function MenuLinks() {
-    var _this;
-
     _classCallCheck(this, MenuLinks);
 
-    _this = _super.call(this);
-    _this.options = [];
-    return _this;
+    return _super.call(this);
   }
 
   _createClass(MenuLinks, [{
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject2(), this.options.map(function (option) {
-        return (0, _litElement.html)(_templateObject3(), option.name, option.link);
-      }));
+      return (0, _litElement.html)(_templateObject2(), _typeof(this.options) === 'object' && this.options.length ? this.options.map(function (option) {
+        return (0, _litElement.html)(_templateObject3(), option.name, option.event);
+      }) : '');
     }
   }]);
 
@@ -28862,10 +28877,18 @@ var _litElement = require("lit-element");
 
 require("./app-home-item");
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n\t\t:host {\n\t\t\tmax-width: 100%;\n\t\t}\n\t\t.half-width {\n\t\t\twidth: 50%;\n\t\t}\n\t\t.wrap-container {\n\t\t\tdisplay: flex;\n\t\t\tflex-wrap: wrap;\n\t\t}\n\t\t"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n\t\t:host {\n\t\t\tmax-width: 100%;\n\t\t}\n\t\t.half-width {\n\t\t\twidth: 50%;\n\t\t}\n\t\t.wrap-container {\n\t\t\tdisplay: flex;\n\t\t\tflex-wrap: wrap;\n\t\t}\n\t\t"]);
+  var data = _taggedTemplateLiteral(["\n\t\t\t\t<app-home-item\n\t\t\t\t.image=", "\n\t\t\t\t.title=", "\n\t\t\t\t.button=", ">\n\t\t\t\t</app-home-item>\n\t\t\t\t"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -28874,8 +28897,10 @@ function _templateObject2() {
   return data;
 }
 
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\t\t\t<div>\n\t\t\t\t<app-home-item \n\t\t\t\t.image=", "\n\t\t\t\t.title=", "\n\t\t\t\t.button=", "></app-home-item>\n\t\t\t\t<app-home-item \n\t\t\t\t.image=", "\n\t\t\t\t.title=", "\n\t\t\t\t.button=", "></app-home-item>\n\t\t\t\t<app-home-item \n\t\t\t\t.image=", "\n\t\t\t\t.title=", "\n\t\t\t\t.button=", "></app-home-item>\n\t\t\t\t<app-home-item \n\t\t\t\t.image=", "\n\t\t\t\t.title=", "\n\t\t\t\t.button=", "></app-home-item>\n\t\t\t</div>\n\t\t"]);
+  var data = _taggedTemplateLiteral(["\n\t\t\t<div>\n\t\t\t\t", "\n\t\t\t</div>\n\t\t"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -28927,6 +28952,9 @@ var AppHome = /*#__PURE__*/function (_LitElement) {
         },
         appHomeD: {
           type: Object
+        },
+        appHomeItems: {
+          type: Object
         }
       };
     }
@@ -28938,6 +28966,35 @@ var AppHome = /*#__PURE__*/function (_LitElement) {
     _classCallCheck(this, AppHome);
 
     _this = _super.call(this);
+    _this.appHomeItems = [{
+      image: 'https://shop.polymer-project.org/esm-bundled/images/mens_outerwear.jpg',
+      title: "Men's Outerwear",
+      button: {
+        name: 'SHOP NOW',
+        event: 'ap-home-button-clicked'
+      }
+    }, {
+      image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_outerwear.jpg',
+      title: "Ladies Outerwear",
+      button: {
+        name: 'SHOP NOW',
+        event: 'ap-home-button-clicked'
+      }
+    }, {
+      image: 'https://shop.polymer-project.org/esm-bundled/images/mens_tshirts.jpg',
+      title: "Men's T-Shirts",
+      button: {
+        name: 'SHOP NOW',
+        event: 'ap-home-button-clicked'
+      }
+    }, {
+      image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_tshirts.jpg',
+      title: "Ladies T-Shirts",
+      button: {
+        name: 'SHOP NOW',
+        event: 'ap-home-button-clicked'
+      }
+    }];
     _this.appHomeA = {
       image: 'https://shop.polymer-project.org/esm-bundled/images/mens_outerwear.jpg',
       title: "Men's Outerwear",
@@ -28976,12 +29033,14 @@ var AppHome = /*#__PURE__*/function (_LitElement) {
   _createClass(AppHome, [{
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject(), this.appHomeA.image, this.appHomeA.title, this.appHomeA.button, this.appHomeB.image, this.appHomeB.title, this.appHomeB.button, this.appHomeC.image, this.appHomeC.title, this.appHomeC.button, this.appHomeD.image, this.appHomeD.title, this.appHomeD.button);
+      return (0, _litElement.html)(_templateObject(), _typeof(this.appHomeItems) === 'object' && this.appHomeItems.length ? this.appHomeItems.map(function (appHomeItem) {
+        return (0, _litElement.html)(_templateObject2(), appHomeItem.image, appHomeItem.title, appHomeItem.button);
+      }) : '');
     }
   }], [{
     key: "styles",
     get: function get() {
-      return (0, _litElement.css)(_templateObject2());
+      return (0, _litElement.css)(_templateObject3());
     }
   }]);
 
@@ -29660,16 +29719,16 @@ var MyApp = /*#__PURE__*/function (_router) {
       },
       menuOptions: [{
         name: "Men's Outerwear",
-        link: 'link-1'
+        event: 'link-1'
       }, {
         name: 'Ladies Outerwear',
-        link: 'link-2'
+        event: 'link-2'
       }, {
         name: "Men's T-Shirts",
-        link: 'link-3'
+        event: 'link-3'
       }, {
         name: 'Ladies T-Shirts',
-        link: 'link-4'
+        event: 'link-4'
       }]
     };
     _this.appCatalogA = {

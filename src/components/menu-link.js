@@ -4,7 +4,7 @@ class MenuLink extends LitElement {
     static get properties() {
         return {
             name: {Type: String},
-            link: {type: Object},
+            event: {type: String},
             active: {
                 type: Boolean,
                 reflect: true
@@ -27,22 +27,31 @@ class MenuLink extends LitElement {
             text-align: center;
             padding: 0.7rem 0.4rem; 
         }
-        #main-container a {
+        #main-container div {
             color: black;
             text-decoration: none;
         }
         `;
     }
 
+    dispatch() {
+        this.dispatchEvent(new CustomEvent(this.event, {
+            bubbles: true,
+            composed: true
+        }));
+    }
+
     handleClick() {
         this.active = !this.active;
-        // this.dispatch();
+        this.dispatch();
     }
 
     render() {
         return html`
         <div id="main-container">
-            <a @click=${this.handleClick} href=${this.link}>${this.name}</a>
+            ${this.event && this.name ? html`
+            <div @click=${this.handleClick}>${this.name}</div>
+            ` : ''}
         </div>
         `;
     }

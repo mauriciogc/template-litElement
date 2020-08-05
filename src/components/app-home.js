@@ -10,11 +10,41 @@ class AppHome extends LitElement {
 			appHomeA: {type: Object},
 			appHomeB: {type: Object},
 			appHomeC: {type: Object},
-			appHomeD: {type: Object}
+			appHomeD: {type: Object},
+			appHomeItems : {type: Object}
 		};
 	}
 	constructor() {
 		super();
+		this.appHomeItems = [{
+			image: 'https://shop.polymer-project.org/esm-bundled/images/mens_outerwear.jpg',
+			title: "Men's Outerwear",
+			button: {
+				name: 'SHOP NOW',
+				event: 'ap-home-button-clicked'
+			}
+		}, {
+			image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_outerwear.jpg',
+			title: "Ladies Outerwear",
+			button: {
+				name: 'SHOP NOW',
+				event: 'ap-home-button-clicked'
+			}
+		}, {
+			image: 'https://shop.polymer-project.org/esm-bundled/images/mens_tshirts.jpg',
+			title: "Men's T-Shirts",
+			button: {
+				name: 'SHOP NOW',
+				event: 'ap-home-button-clicked'
+			}
+		}, {
+			image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_tshirts.jpg',
+			title: "Ladies T-Shirts",
+			button: {
+				name: 'SHOP NOW',
+				event: 'ap-home-button-clicked'
+			}
+		}]
 		this.appHomeA = {
 			image: 'https://shop.polymer-project.org/esm-bundled/images/mens_outerwear.jpg',
 			title: "Men's Outerwear",
@@ -67,22 +97,14 @@ class AppHome extends LitElement {
 	render() {
 		return html`
 			<div>
-				<app-home-item 
-				.image=${this.appHomeA.image}
-				.title=${this.appHomeA.title}
-				.button=${this.appHomeA.button}></app-home-item>
-				<app-home-item 
-				.image=${this.appHomeB.image}
-				.title=${this.appHomeB.title}
-				.button=${this.appHomeB.button}></app-home-item>
-				<app-home-item 
-				.image=${this.appHomeC.image}
-				.title=${this.appHomeC.title}
-				.button=${this.appHomeC.button}></app-home-item>
-				<app-home-item 
-				.image=${this.appHomeD.image}
-				.title=${this.appHomeD.title}
-				.button=${this.appHomeD.button}></app-home-item>
+				${typeof this.appHomeItems === 'object' && this.appHomeItems.length ? 
+				this.appHomeItems.map(appHomeItem => html`
+				<app-home-item
+				.image=${appHomeItem.image}
+				.title=${appHomeItem.title}
+				.button=${appHomeItem.button}>
+				</app-home-item>
+				`) : ''}
 			</div>
 		`;
 	}

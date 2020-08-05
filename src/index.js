@@ -36,16 +36,16 @@ class MyApp extends router(LitElement) {
 			},
 			menuOptions: [{
 				name: "Men's Outerwear",
-				link: 'link-1'
+				event: 'link-1'
 			}, {
 				name: 'Ladies Outerwear',
-				link: 'link-2'
+				event: 'link-2'
 			}, {
 				name: "Men's T-Shirts",
-				link: 'link-3'
+				event: 'link-3'
 			}, {
 				name: 'Ladies T-Shirts',
-				link: 'link-4'
+				event: 'link-4'
 			}]
 		};
 		this.appCatalogA = {
