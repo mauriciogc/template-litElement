@@ -28,13 +28,17 @@ class AppToolbar extends LitElement {
             font-size: 16px;
             font-weight: 600;
             letter-spacing: 0.3em;
+            width: 100%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            left: 0;
         }
         `;
     }
 
     constructor() {
         super();
-        this.title = '';
     }
 
     dispatch(eventName) {
@@ -48,13 +52,21 @@ class AppToolbar extends LitElement {
     render() {
         return html`
         <div id="main-container">
-            <paper-icon-button 
-            @click=${() => {this.dispatch(this.leftIcon.event)}} 
-            icon=${this.leftIcon.name}></paper-icon-button>
-            <div id="title">${this.title}</div>
-            <paper-icon-button 
-            @click=${() => {this.dispatch(this.rightIcon.event)}} 
-            icon=${this.rightIcon.name}></paper-icon-button>
+            <div id="left-icon">
+                ${this.leftIcon ? html`
+                <paper-icon-button 
+                @click=${() => {this.dispatch(this.leftIcon.event)}} 
+                icon=${this.leftIcon.name}></paper-icon-button>
+                ` : null}
+            </div>
+            <div id="title">${this.title ? this.title : html``}</div>
+            <div id="right-icon">
+                ${this.rightIcon ? html`
+                <paper-icon-button 
+                @click=${() => {this.dispatch(this.rightIcon.event)}} 
+                icon=${this.rightIcon.name}></paper-icon-button>
+                ` : null}
+            </div>
         </div>
         `;
     }

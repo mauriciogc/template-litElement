@@ -28296,8 +28296,38 @@ require("@polymer/iron-icons/iron-icons.js");
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n                <paper-icon-button \n                @click=", " \n                icon=", "></paper-icon-button>\n                "]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral([""]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n                <paper-icon-button \n                @click=", " \n                icon=", "></paper-icon-button>\n                "]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n        <div id=\"main-container\">\n            <paper-icon-button \n            @click=", " \n            icon=", "></paper-icon-button>\n            <div id=\"title\">", "</div>\n            <paper-icon-button \n            @click=", " \n            icon=", "></paper-icon-button>\n        </div>\n        "]);
+  var data = _taggedTemplateLiteral(["\n        <div id=\"main-container\">\n            <div id=\"left-icon\">\n                ", "\n            </div>\n            <div id=\"title\">", "</div>\n            <div id=\"right-icon\">\n                ", "\n            </div>\n        </div>\n        "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -28307,7 +28337,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n        :host {\n            display: block\n        }\n        #main-container {\n            width: 100%;\n            display: flex;\n            align-items: center;\n            justify-content: space-between;\n        }\n        #title {\n            font-size: 16px;\n            font-weight: 600;\n            letter-spacing: 0.3em;\n        }\n        "]);
+  var data = _taggedTemplateLiteral(["\n        :host {\n            display: block\n        }\n        #main-container {\n            width: 100%;\n            display: flex;\n            align-items: center;\n            justify-content: space-between;\n        }\n        #title {\n            font-size: 16px;\n            font-weight: 600;\n            letter-spacing: 0.3em;\n            width: 100%;\n            position: absolute;\n            display: flex;\n            justify-content: center;\n            left: 0;\n        }\n        "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -28385,11 +28415,11 @@ var AppToolbar = /*#__PURE__*/function (_LitElement) {
     value: function render() {
       var _this = this;
 
-      return (0, _litElement.html)(_templateObject2(), function () {
+      return (0, _litElement.html)(_templateObject2(), this.leftIcon ? (0, _litElement.html)(_templateObject3(), function () {
         _this.dispatch(_this.leftIcon.event);
-      }, this.leftIcon.name, this.title, function () {
+      }, this.leftIcon.name) : null, this.title ? this.title : (0, _litElement.html)(_templateObject4()), this.rightIcon ? (0, _litElement.html)(_templateObject5(), function () {
         _this.dispatch(_this.rightIcon.event);
-      }, this.rightIcon.name);
+      }, this.rightIcon.name) : null);
     }
   }]);
 
@@ -28482,7 +28512,7 @@ var MenuLink = /*#__PURE__*/function (_LitElement) {
   _createClass(MenuLink, [{
     key: "handleClick",
     value: function handleClick() {
-      this.active = !this.active;
+      this.active = !this.active; // this.dispatch();
     }
   }, {
     key: "render",
@@ -29606,15 +29636,6 @@ var MyApp = /*#__PURE__*/function (_router) {
         },
         appCatalogA: {
           type: Object
-        },
-        appCatalogB: {
-          type: Object
-        },
-        appCatalogC: {
-          type: Object
-        },
-        appCatalogD: {
-          type: Object
         }
       };
     }
@@ -29712,7 +29733,7 @@ var MyApp = /*#__PURE__*/function (_router) {
         pattern: ''
       }, {
         name: 'mens_outerwear',
-        pattern: 'mens_outerwear/'
+        pattern: 'products/:productId'
       }, {
         name: 'product_detail',
         pattern: 'product_detail/:id'
@@ -29760,7 +29781,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56938" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53242" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
