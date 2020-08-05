@@ -36,6 +36,7 @@ class MenuLink extends LitElement {
 
     handleClick() {
         this.active = !this.active;
+        // this.dispatch();
     }
 
     render() {

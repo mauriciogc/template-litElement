@@ -22,7 +22,7 @@ class AppHome extends LitElement {
 				name: 'SHOP NOW',
 				event: 'ap-home-button-clicked'
 			}
-		}
+		};
 		this.appHomeB = {
 			image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_outerwear.jpg',
 			title: "Ladies Outerwear",
@@ -30,7 +30,7 @@ class AppHome extends LitElement {
 				name: 'SHOP NOW',
 				event: 'ap-home-button-clicked'
 			}
-		}
+		};
 		this.appHomeC = {
 			image: 'https://shop.polymer-project.org/esm-bundled/images/mens_tshirts.jpg',
 			title: "Men's T-Shirts",
@@ -38,7 +38,7 @@ class AppHome extends LitElement {
 				name: 'SHOP NOW',
 				event: 'ap-home-button-clicked'
 			}
-		}
+		};
 		this.appHomeD = {
 			image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_tshirts.jpg',
 			title: "Ladies T-Shirts",
@@ -46,7 +46,7 @@ class AppHome extends LitElement {
 				name: 'SHOP NOW',
 				event: 'ap-home-button-clicked'
 			}
-		}
+		};
 	}
 
 	static get styles() {

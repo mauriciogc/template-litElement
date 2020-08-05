@@ -34,6 +34,7 @@ class AppToolbar extends LitElement {
 
     constructor() {
         super();
+        this.title = '';
     }
 
     dispatch(eventName) {

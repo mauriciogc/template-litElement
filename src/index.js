@@ -6,6 +6,7 @@ import './components/app-header';
 import './components/app-home';
 import './components/app-router';
 import './components/app-catalog';
+import './components/app-detail';
 
 // Import tools
 import { router } from 'lit-element-router';
@@ -18,9 +19,6 @@ class MyApp extends router(LitElement) {
 			params: { type: Object },
 			query: { type: Object },
 			appCatalogA: {type: Object},
-			appCatalogB: {type: Object},
-			appCatalogC: {type: Object},
-			appCatalogD: {type: Object}
 		};
 	}
 	constructor() {
@@ -96,7 +94,10 @@ class MyApp extends router(LitElement) {
 			pattern: '',
 		}, {
 			name: 'mens_outerwear',
-			pattern: 'mens_outerwear/'
+			pattern: 'products/:productId'
+		}, {
+			name: 'product_detail',
+			pattern: 'product_detail/:id'
 		}, {
 			name: 'not-found',
 			pattern: '*'
@@ -134,6 +135,8 @@ class MyApp extends router(LitElement) {
 				.image=${this.appCatalogA.image}
 				.title=${this.appCatalogA.title}
 				.catalogItems=${this.appCatalogA.catalogItems}></app-catalog>
+				<app-detail
+				route='product_detail'></app-detail>
 			</app-router>
 		`;
 	}

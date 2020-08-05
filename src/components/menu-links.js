@@ -6,7 +6,7 @@ import './menu-link';
 class MenuLinks extends LitElement {
     static get properties() {
         return {
-            options: {type: Object}
+            options: {type: Array}
         }
     }
 
