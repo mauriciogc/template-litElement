@@ -108,6 +108,7 @@ class MyApp extends router(LitElement) {
 		this.route = route;
 		this.params = params;
 		this.query = query;
+		console.log(route, params, query);
 	  }
 
 	static get styles() {

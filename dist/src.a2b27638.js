@@ -29550,10 +29550,50 @@ customElements.define("app-catalog", AppCatalog);
 
 var _litElement = require("lit-element");
 
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n\t\t:host {\n\t\t\tdisplay: block;\n\t\t\tfont-family: Roboto, Noto, sans-serif;\n\t\t}\n\t\t#main-container {\n\t\t\twidth: 100%;\n\t\t}\n\t\t#container {\n\t\t\tdisplay: flex;\n\t\t\tjustify-content: center;\n\t\t}\n\t\t#name {\n\t\t\tfont-size: 24px;\n\t\t\tfont-weight: 500;\n\t\t\tline-height: 28px;\n\t\t}\n\t\t#price {\n\t\t\tmargin: 16px 0 40px;\n\t\t\tfont-size: 16px;\n\t\t\tcolor: #757575;\n\t\t}\n\t\t#image-container {\n\t\t\tposition: relative;\n\t\t\tmargin: 64px 32px;\n\t\t\twidth: 50%;\n\t\t\tmax-width: 600px;\n\t\t}\n\t\t#image {\n\t\t\twidth 90%;\n\t\t}\n\t\t#detail-container {\n\t\t\tmargin: 64px 32px;\n    \t\twidth: 50%;\n    \t\tmax-width: 400px;\n\t\t}\n\t\t#form-container {\n\t\t\twidth: 100%;\n\n\t\t}\n\t\t#description-title {\n\t\t\tfont-size: 13px;\n\t\t\tline-height: 1.5;\n\t\t}\n\t\t#features-title {\n\t\t\tcolor: #757575;\n\t\t\tfont-size: 13px;\n\t\t\tline-height: 1.5;\n\t\t}\n\t\t.product-detail {\n\t\t\tcolor: #757575;\n\t\t\tfont-size: 13px;\n\t\t\tline-height: 1.5;\n\t\t}\n\t\t#checkout {\n\t\t\tbox-sizing: border-box;\n\t\t\tborder: 2px solid #000;\n\t\t\tbackground-color: #FFF;\n\t\t\tfont-size: 14px;\n\t\t\tfont-weight: 500;\n\t\t\tcolor: black;\n\t\t\tmargin: 0;\n\t\t\tpadding: 8px 44px;\n\t\t\ttext-align: center;\n\t\t\ttext-decoration: none;\n\t\t\ttext-transform: uppercase;\n\t\t\tborder-radius: 0;\n\t\t\toutline: none;\n\t\t\tcursor: pointer;\n\t\t}\n\t\t#checkout:active {\n\t\t\tbackground-color: black;\n    \t\tcolor: #FFF;\n\t\t}\n\t\t#checkout:focus {\n\t\t\tbackground-color: #c5cad3;\n\t\t}\n\t\t"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["<li>", "</li>"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["<ul>\n\t\t\t\t\t\t\t\t\t", "\n\t\t\t\t\t\t\t\t</ul>"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["<option>", "</option>"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["app-detail</p>"]);
+  var data = _taggedTemplateLiteral(["\n\t\t<div id=\"main-container\">\n\t\t\t<div id=\"container\">\n\t\t\t\t<div id=\"image-container\">\n\t\t\t\t\t<img id=\"image\" src=", " >\n\t\t\t\t</div>\n\t\t\t\t<div id=\"detail-container\">\n\t\t\t\t\t<div id=\"form-container\">\n\t\t\t\t\t\t<div id=\"name\">", "</div>\n\t\t\t\t\t\t<div id=\"price\">", "</div>\n\t\t\t\t\t\t<div id=\"form\">\n\t\t\t\t\t\t\t<label for=\"size\">Size:</label>\n\t\t\t\t\t\t\t<select name=\"size\" @change=", ">\n\t\t\t\t\t\t\t\t", "\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t<label for=\"quantity\">Quantity: ", "</label>\n\t\t\t\t\t\t\t<select name=\"quantity\" @change=", ">\n\t\t\t\t\t\t\t\t<option>1</option>\n\t\t\t\t\t\t\t\t<option>2</option>\n\t\t\t\t\t\t\t\t<option>3</option>\n\t\t\t\t\t\t\t\t<option>4</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h6 id=\"description-title\">Description:</h6>\n\t\t\t\t\t\t\t<div class=\"product-detail\">\n\t\t\t\t\t\t\t\t", "\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h6 id=\"features-title\">Features</h6>\n\t\t\t\t\t\t\t<div class=\"product-detail\">\n\t\t\t\t\t\t\t\t", "\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<button id=\"checkout\" >ADD TO CAR</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -29589,21 +29629,86 @@ var AppDetail = /*#__PURE__*/function (_LitElement) {
 
   var _super = _createSuper(AppDetail);
 
+  _createClass(AppDetail, null, [{
+    key: "properties",
+    get: function get() {
+      return {
+        productId: {
+          type: Number
+        },
+        image: {
+          type: String
+        },
+        name: {
+          type: String
+        },
+        price: {
+          type: String
+        },
+        size: {
+          type: String
+        },
+        sizeOptions: {
+          type: String
+        },
+        quantity: {
+          type: Number
+        },
+        description: {
+          type: String
+        },
+        features: {
+          type: Object
+        }
+      };
+    }
+  }]);
+
   function AppDetail() {
+    var _this;
+
     _classCallCheck(this, AppDetail);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this);
+    _this.image = 'https://shop.polymer-project.org/esm-bundled/data/images/10-14154A.jpg';
+    _this.name = "Anvil L/S Crew Neck - Grey";
+    _this.price = 22.15;
+    _this.sizeOptions = ['XS', 'S', 'M', 'L', 'XL'];
+    _this.quantity = 0;
+    _this.description = "You'll be swooning over this crew neck as soon as you feel how soft it is.";
+    _this.features = ["40% preshrunk ring-spun cotton, 60% polyester terry fleece. ", "Available in dark heather charcoal with the white Google logo screen printed across center chest."];
+    return _this;
   }
 
   _createClass(AppDetail, [{
+    key: "quantitySelected",
+    value: function quantitySelected() {
+      console.log('quantity changed');
+    }
+  }, {
+    key: "sizeSelected",
+    value: function sizeSelected() {
+      console.log('size selected');
+    }
+  }, {
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject());
+      var _this2 = this;
+
+      return (0, _litElement.html)(_templateObject(), this.image, this.name || '', this.price, function (e) {
+        _this2.sizeSelected(e.target);
+      }, this.sizeOptions.map(function (sizeOption) {
+        return (0, _litElement.html)(_templateObject2(), sizeOption);
+      }), this.quantity, function (e) {
+        return _this2.quantitySelected(e.target);
+      }, this.description || 'Info not available.', _typeof(this.features) === 'object' && this.features.length ? (0, _litElement.html)(_templateObject3(), this.features.map(function (feature) {
+        return (0, _litElement.html)(_templateObject4(), feature);
+      })) : 'Info not available');
     }
   }], [{
-    key: "properties",
+    key: "styles",
     get: function get() {
-      return {};
+      return (0, _litElement.css)(_templateObject5());
     }
   }]);
 
@@ -29778,6 +29883,7 @@ var MyApp = /*#__PURE__*/function (_router) {
       this.route = route;
       this.params = params;
       this.query = query;
+      console.log(route, params, query);
     }
   }, {
     key: "render",
@@ -29840,7 +29946,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53242" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61450" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
