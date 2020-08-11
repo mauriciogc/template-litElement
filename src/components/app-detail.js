@@ -19,9 +19,10 @@ class AppDetail extends LitElement {
 		super();
 		this.image = 'https://shop.polymer-project.org/esm-bundled/data/images/10-14154A.jpg';
 		this.name = "Anvil L/S Crew Neck - Grey";
-		this.price = 22.15
+		this.price = 22.15;
+		this.size = 'XS';
 		this.sizeOptions = ['XS', 'S', 'M', 'L', 'XL'];
-		this.quantity = 0;
+		this.quantity = 1;
 		this.description = "You'll be swooning over this crew neck as soon as you feel how soft it is.";
 		this.features = [
 			"40% preshrunk ring-spun cotton, 60% polyester terry fleece. ",
@@ -110,12 +111,12 @@ class AppDetail extends LitElement {
 		`;
 	}
 
-	quantitySelected() {
-		console.log('quantity changed');
+	quantitySelected(origin) {
+		this.quantity = Number(origin.options[origin.selectedIndex].value);
 	}
 
-	sizeSelected() {
-		console.log('size selected');
+	sizeSelected(origin) {
+		this.size = origin.options[origin.selectedIndex].value
 	}
 
 	render() {
@@ -132,14 +133,18 @@ class AppDetail extends LitElement {
 						<div id="form">
 							<label for="size">Size:</label>
 							<select name="size" @change=${(e) => {this.sizeSelected(e.target)}}>
-								${this.sizeOptions.map(sizeOption => html`<option>${sizeOption}</option>`)}
+								<option value="XS"></option>
+								<option value="S"></option>
+								<option value="M"></option>
+								<option value="XS"></option>
+								<option value="XS"></option>
 							</select>
-							<label for="quantity">Quantity: ${this.quantity}</label>
+							<label for="quantity">Quantity: </label>
 							<select name="quantity" @change=${(e) =>this.quantitySelected(e.target)}>
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
 							</select>
 						</div>
 						<div>

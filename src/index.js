@@ -1,5 +1,4 @@
 import { LitElement, html, css } from "lit-element";
-// import "./components/hello-word";
 
 // import app components
 import './components/app-header';
@@ -7,6 +6,7 @@ import './components/app-home';
 import './components/app-router';
 import './components/app-catalog';
 import './components/app-detail';
+import './components/app-cart';
 
 // Import tools
 import { router } from 'lit-element-router';
@@ -21,6 +21,7 @@ class MyApp extends router(LitElement) {
 			appCatalogA: {type: Object},
 		};
 	}
+
 	constructor() {
 		super();
 		this.route = '';
@@ -101,6 +102,9 @@ class MyApp extends router(LitElement) {
 		}, {
 			name: 'not-found',
 			pattern: '*'
+		}, {
+			name: 'cart',
+			pattern: 'cart/:userId'
 		}]
 	}
 
@@ -138,6 +142,7 @@ class MyApp extends router(LitElement) {
 				.catalogItems=${this.appCatalogA.catalogItems}></app-catalog>
 				<app-detail
 				route='product_detail'></app-detail>
+				<app-cart route="cart"></app-cart>
 			</app-router>
 		`;
 	}
