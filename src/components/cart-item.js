@@ -14,7 +14,8 @@ class CartItem extends LitElement {
             size: {type: String},
             price: {type: Number},
             icon: {type: String},
-            event: {type: String}
+            event: {type: String},
+            index: {type: Number}
 		};
     }
 
@@ -50,7 +51,7 @@ class CartItem extends LitElement {
     }
 
 	render() {
-		return html`<div id="main-container">
+		return html`<div id="main-container" >
             <div id="left-container" >
                 <img id="image" src=${this.image}  />
                 <div id="name">${this.name}</div>
@@ -82,7 +83,8 @@ class CartItem extends LitElement {
     dispatch() {
         this.dispatchEvent(new CustomEvent(this.event, {
             bubbles: true,
-            composed: true
+            composed: true,
+            detail: this.index
         }));
     }
 }

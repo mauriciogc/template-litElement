@@ -29727,7 +29727,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["<div id=\"main-container\">\n            <div id=\"left-container\" >\n                <img id=\"image\" src=", "  />\n                <div id=\"name\">", "</div>\n            </div>\n            <div id=\"right-container\">\n                <div id=\"quantity\">\n                    <label for=\"select-quantity\">Qty: </label>\n                    <select name=\"select-quantity\">\n                        <option>1</option>\n                        <option>2</option>\n                        <option>3</option>\n                    </select>\n                </div>\n                <div id=\"size\">\n                    size: ", "\n                </div>\n                <div id=\"price\">\n                    $", "\n                </div>\n                <div id=\"icon\">\n                <paper-icon-button \n                    @click=", " \n                    icon=", "></paper-icon-button>\n                </div>\n            </div>\n        </div>"]);
+  var data = _taggedTemplateLiteral(["<div id=\"main-container\" >\n            <div id=\"left-container\" >\n                <img id=\"image\" src=", "  />\n                <div id=\"name\">", "</div>\n            </div>\n            <div id=\"right-container\">\n                <div id=\"quantity\">\n                    <label for=\"select-quantity\">Qty: </label>\n                    <select name=\"select-quantity\">\n                        <option>1</option>\n                        <option>2</option>\n                        <option>3</option>\n                    </select>\n                </div>\n                <div id=\"size\">\n                    size: ", "\n                </div>\n                <div id=\"price\">\n                    $", "\n                </div>\n                <div id=\"icon\">\n                <paper-icon-button \n                    @click=", " \n                    icon=", "></paper-icon-button>\n                </div>\n            </div>\n        </div>"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -29779,7 +29779,8 @@ var CartItem = /*#__PURE__*/function (_LitElement) {
     value: function dispatch() {
       this.dispatchEvent(new CustomEvent(this.event, {
         bubbles: true,
-        composed: true
+        composed: true,
+        detail: this.index
       }));
     }
   }], [{
@@ -29809,6 +29810,9 @@ var CartItem = /*#__PURE__*/function (_LitElement) {
         },
         event: {
           type: String
+        },
+        index: {
+          type: Number
         }
       };
     }
@@ -29833,7 +29837,7 @@ require("./cart-item");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n        :host {\n            font-family: 'Roboto', 'Noto', sans-serif;\n            width: 100%\n        }\n        #main-container {\n            width: 100%;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n        #cart-items-container {\n            width: 60%;\n        }\n        "]);
+  var data = _taggedTemplateLiteral(["\n        :host {\n            font-family: 'Roboto', 'Noto', sans-serif;\n            width: 100%\n        }\n        #main-container {\n            width: 100%;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n        #cart-items-container {\n            width: 60%;\n        }\n        .header {\n            text-align: center;\n        }\n        .title {\n            margin: 0 0 4px 0;\n            font-size: 1.3em;\n            font-weight: 500;\n        }\n        .gray-text {\n            font-size: 13px;\n            line-height: 1.5;\n            color: #757575;\n        }\n        .footer {\n            display: flex;\n            width: 60%;\n            justify-content: flex-end;\n            align-items: center;\n        }\n        .total {\n            font-size: 13px;\n            line-height: 1.5;\n            margin-right: 2rem\n        }\n        .checkout {\n            display: inline-block;\n            box-sizing: border-box;\n            border: 2px solid #000;\n            background-color: #FFF;\n            font-size: 14px;\n            font-weight: 500;\n            color: black;\n            margin: 0;\n            padding: 8px 44px;\n            text-align: center;\n            text-decoration: none;\n            text-transform: uppercase;\n            border-radius: 0;\n            outline: none;\n        }\n        "]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -29843,7 +29847,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n                    <cart-item\n                    .image=", "\n                    .name=", "\n                    .productId=", "\n                    .quantity=", "\n                    .size=", "\n                    .price=", "\n                    .icon=", "\n                    .event=", "></cart-item>\n                "]);
+  var data = _taggedTemplateLiteral(["\n                    <cart-item\n                    .image=", "\n                    .name=", "\n                    .productId=", "\n                    .quantity=", "\n                    .size=", "\n                    .price=", "\n                    .icon=", "\n                    .event=", "\n                    .index=", "></cart-item>\n                "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -29853,7 +29857,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["<div id=\"main-container\">\n            (", " items)\n            <div id=\"cart-items-container\">\n                ", "\n            </div>\n            Total: $", "\n        </div>"]);
+  var data = _taggedTemplateLiteral(["<div id=\"main-container\">\n            <div class=\"header\">\n                <div class=\"title\">Your Cart</div>\n                <div class=\"gray-text\">(", " items)</div>\n            </div>\n            <div id=\"cart-items-container\" @icon-clicked=", ">\n                ", "\n            </div>\n            <div class=\"footer\">\n                <div class=\"total\">Total: $", "</div>\n                <button class=\"checkout\">Checkout</button>\n            </div>\n        </div>"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -29883,8 +29887,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var AppCart = /*#__PURE__*/function (_LitElement) {
   _inherits(AppCart, _LitElement);
@@ -29920,9 +29922,6 @@ var AppCart = /*#__PURE__*/function (_LitElement) {
     _classCallCheck(this, AppCart);
 
     _this = _super.call(this);
-
-    _defineProperty(_assertThisInitialized(_this), "get", void 0);
-
     var items = [{
       image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-14154B.jpg',
       name: "Anvil L/S Crew Neck - Grey",
@@ -29952,8 +29951,8 @@ var AppCart = /*#__PURE__*/function (_LitElement) {
   _createClass(AppCart, [{
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject(), this.items.length, this.items.map(function (item) {
-        return (0, _litElement.html)(_templateObject2(), item.image, item.name, item.productId, item.quantity, item.size, item.price, item.icon, item.event);
+      return (0, _litElement.html)(_templateObject(), this.items.length, this.deleteItem, this.items.map(function (item, index) {
+        return (0, _litElement.html)(_templateObject2(), item.image, item.name, item.productId, item.quantity, item.size, item.price, item.icon, item.event, index);
       }), this.total);
     }
   }, {
@@ -29962,6 +29961,16 @@ var AppCart = /*#__PURE__*/function (_LitElement) {
       return items.reduce(function (acc, cv) {
         return acc + cv;
       }, 0);
+    }
+  }, {
+    key: "deleteItem",
+    value: function deleteItem(_ref) {
+      var detail = _ref.detail;
+      this.items.splice(detail, 1);
+      console.log(this.items);
+      this.total = this.getTotal(this.items.map(function (item) {
+        return item.price;
+      }));
     }
   }], [{
     key: "styles",
@@ -30209,7 +30218,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57511" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59736" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

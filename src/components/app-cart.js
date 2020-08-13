@@ -57,14 +57,57 @@ class AppCart extends LitElement {
         #cart-items-container {
             width: 60%;
         }
+        .header {
+            text-align: center;
+        }
+        .title {
+            margin: 0 0 4px 0;
+            font-size: 1.3em;
+            font-weight: 500;
+        }
+        .gray-text {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #757575;
+        }
+        .footer {
+            display: flex;
+            width: 60%;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .total {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-right: 2rem
+        }
+        .checkout {
+            display: inline-block;
+            box-sizing: border-box;
+            border: 2px solid #000;
+            background-color: #FFF;
+            font-size: 14px;
+            font-weight: 500;
+            color: black;
+            margin: 0;
+            padding: 8px 44px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 0;
+            outline: none;
+        }
         `;
     }
 
 	render() {
 		return html`<div id="main-container">
-            (${this.items.length} items)
-            <div id="cart-items-container">
-                ${this.items.map(item => html`
+            <div class="header">
+                <div class="title">Your Cart</div>
+                <div class="gray-text">(${this.items.length} items)</div>
+            </div>
+            <div id="cart-items-container" @icon-clicked=${this.deleteItem}>
+                ${this.items.map((item, index) => html`
                     <cart-item
                     .image=${item.image}
                     .name=${item.name}
@@ -73,10 +116,14 @@ class AppCart extends LitElement {
                     .size=${item.size}
                     .price=${item.price}
                     .icon=${item.icon}
-                    .event=${item.event}></cart-item>
+                    .event=${item.event}
+                    .index=${index}></cart-item>
                 `)}
             </div>
-            Total: $${this.total}
+            <div class="footer">
+                <div class="total">Total: $${this.total}</div>
+                <button class="checkout">Checkout</button>
+            </div>
         </div>`;
     }
     
@@ -84,6 +131,10 @@ class AppCart extends LitElement {
         return items.reduce((acc, cv) => acc + cv, 0);
     }
 
-    get
+    deleteItem({detail}) {
+        this.items.splice(detail, 1);
+        console.log(this.items);
+        this.total = this.getTotal(this.items.map(item => item.price));
+    }
 }
 customElements.define("app-cart", AppCart);
