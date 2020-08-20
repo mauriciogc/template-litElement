@@ -133,11 +133,11 @@ class AppDetail extends LitElement {
 						<div id="form">
 							<label for="size">Size:</label>
 							<select name="size" @change=${(e) => {this.sizeSelected(e.target)}}>
-								<option value="XS"></option>
-								<option value="S"></option>
-								<option value="M"></option>
-								<option value="XS"></option>
-								<option value="XS"></option>
+								<option value="XS">XS</option>
+								<option value="S">S</option>
+								<option value="M">M</option>
+								<option value="XS">L</option>
+								<option value="XS">XL</option>
 							</select>
 							<label for="quantity">Quantity: </label>
 							<select name="quantity" @change=${(e) =>this.quantitySelected(e.target)}>

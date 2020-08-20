@@ -14,12 +14,38 @@ class AppCatalog extends LitElement {
     
     constructor() {
         super();
-        this.title = '';
-        this.image = '/';
+        this.title = "Men's Outerwear";
+        this.image = 'https://shop.polymer-project.org/esm-bundled/images/mens_outerwear.jpg';
         this.catalogItems = [{
-            image: '/',
             name: "Men's Tech Shell Full-Zip",
-            price: 50.20
+            price: 50.20,
+            image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+            url: '/',
+        }, {
+            name: "Men's Tech Shell Full-Zip",
+            price: 50.20,
+            image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+            url: '/',
+        }, {
+            name: "Men's Tech Shell Full-Zip",
+            price: 50.20,
+            image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+            url: '/',
+        }, {
+            name: "Men's Tech Shell Full-Zip",
+            price: 50.20,
+            image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+            url: '/',
+        }, {
+            name: "Men's Tech Shell Full-Zip",
+            price: 50.20,
+            image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+            url: '/',
+        }, {
+            name: "Men's Tech Shell Full-Zip",
+            price: 50.20,
+            image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+            url: '/',
         }];
     }
 

@@ -49,41 +49,6 @@ class MyApp extends router(LitElement) {
 				event: 'link-4'
 			}]
 		};
-		this.appCatalogA = {
-			title: "Men's Outerwear",
-			image: 'https://shop.polymer-project.org/esm-bundled/images/mens_outerwear.jpg',
-			catalogItems: [{
-				name: "Men's Tech Shell Full-Zip",
-				price: 50.20,
-				image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
-				url: '/',
-			}, {
-				name: "Men's Tech Shell Full-Zip",
-				price: 50.20,
-				image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
-				url: '/',
-			}, {
-				name: "Men's Tech Shell Full-Zip",
-				price: 50.20,
-				image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
-				url: '/',
-			}, {
-				name: "Men's Tech Shell Full-Zip",
-				price: 50.20,
-				image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
-				url: '/',
-			}, {
-				name: "Men's Tech Shell Full-Zip",
-				price: 50.20,
-				image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
-				url: '/',
-			}, {
-				name: "Men's Tech Shell Full-Zip",
-				price: 50.20,
-				image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
-				url: '/',
-			}]
-		}
 	}
 
 	// ------------------------
@@ -94,7 +59,7 @@ class MyApp extends router(LitElement) {
 			name: 'home',
 			pattern: '',
 		}, {
-			name: 'mens_outerwear',
+			name: 'products',
 			pattern: 'products/:productId'
 		}, {
 			name: 'product_detail',
@@ -125,21 +90,19 @@ class MyApp extends router(LitElement) {
 		}
 		`;
 	}
-
+	// Cada componente no debe recibir ropiedades
 	render() {
 		return html`
 			<app-header 
 				.title=${this.appHeaderProps.title}
 				.leftIcon=${this.appHeaderProps.leftIcon}
 				.rightIcon=${this.appHeaderProps.rightIcon}
-				.menuOptions=${this.appHeaderProps.menuOptions}></app-header>
+				.menuOptions=${this.appHeaderProps.menuOptions}>
+			</app-header>
 			<app-router active-route=${this.route}>
 				<app-home route='home'></app-home>
 				<app-catalog 
-				route='mens_outerwear'
-				.image=${this.appCatalogA.image}
-				.title=${this.appCatalogA.title}
-				.catalogItems=${this.appCatalogA.catalogItems}></app-catalog>
+				route='products'></app-catalog>
 				<app-detail
 				route='product_detail'></app-detail>
 				<app-cart route="cart"></app-cart>

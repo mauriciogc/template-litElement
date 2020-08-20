@@ -29517,12 +29517,38 @@ var AppCatalog = /*#__PURE__*/function (_LitElement) {
     _classCallCheck(this, AppCatalog);
 
     _this = _super.call(this);
-    _this.title = '';
-    _this.image = '/';
+    _this.title = "Men's Outerwear";
+    _this.image = 'https://shop.polymer-project.org/esm-bundled/images/mens_outerwear.jpg';
     _this.catalogItems = [{
-      image: '/',
       name: "Men's Tech Shell Full-Zip",
-      price: 50.20
+      price: 50.20,
+      image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+      url: '/'
+    }, {
+      name: "Men's Tech Shell Full-Zip",
+      price: 50.20,
+      image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+      url: '/'
+    }, {
+      name: "Men's Tech Shell Full-Zip",
+      price: 50.20,
+      image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+      url: '/'
+    }, {
+      name: "Men's Tech Shell Full-Zip",
+      price: 50.20,
+      image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+      url: '/'
+    }, {
+      name: "Men's Tech Shell Full-Zip",
+      price: 50.20,
+      image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+      url: '/'
+    }, {
+      name: "Men's Tech Shell Full-Zip",
+      price: 50.20,
+      image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
+      url: '/'
     }];
     return _this;
   }
@@ -29583,7 +29609,7 @@ function _templateObject2() {
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\t\t<div id=\"main-container\">\n\t\t\t<div id=\"container\">\n\t\t\t\t<div id=\"image-container\">\n\t\t\t\t\t<img id=\"image\" src=", " >\n\t\t\t\t</div>\n\t\t\t\t<div id=\"detail-container\">\n\t\t\t\t\t<div id=\"form-container\">\n\t\t\t\t\t\t<div id=\"name\">", "</div>\n\t\t\t\t\t\t<div id=\"price\">", "</div>\n\t\t\t\t\t\t<div id=\"form\">\n\t\t\t\t\t\t\t<label for=\"size\">Size:</label>\n\t\t\t\t\t\t\t<select name=\"size\" @change=", ">\n\t\t\t\t\t\t\t\t<option value=\"XS\"></option>\n\t\t\t\t\t\t\t\t<option value=\"S\"></option>\n\t\t\t\t\t\t\t\t<option value=\"M\"></option>\n\t\t\t\t\t\t\t\t<option value=\"XS\"></option>\n\t\t\t\t\t\t\t\t<option value=\"XS\"></option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t<label for=\"quantity\">Quantity: </label>\n\t\t\t\t\t\t\t<select name=\"quantity\" @change=", ">\n\t\t\t\t\t\t\t\t<option value=\"1\">1</option>\n\t\t\t\t\t\t\t\t<option value=\"2\">2</option>\n\t\t\t\t\t\t\t\t<option value=\"3\">3</option>\n\t\t\t\t\t\t\t\t<option value=\"4\">4</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h6 id=\"description-title\">Description:</h6>\n\t\t\t\t\t\t\t<div class=\"product-detail\">\n\t\t\t\t\t\t\t\t", "\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h6 id=\"features-title\">Features</h6>\n\t\t\t\t\t\t\t<div class=\"product-detail\">\n\t\t\t\t\t\t\t\t", "\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<button id=\"checkout\" >ADD TO CAR</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t"]);
+  var data = _taggedTemplateLiteral(["\n\t\t<div id=\"main-container\">\n\t\t\t<div id=\"container\">\n\t\t\t\t<div id=\"image-container\">\n\t\t\t\t\t<img id=\"image\" src=", " >\n\t\t\t\t</div>\n\t\t\t\t<div id=\"detail-container\">\n\t\t\t\t\t<div id=\"form-container\">\n\t\t\t\t\t\t<div id=\"name\">", "</div>\n\t\t\t\t\t\t<div id=\"price\">", "</div>\n\t\t\t\t\t\t<div id=\"form\">\n\t\t\t\t\t\t\t<label for=\"size\">Size:</label>\n\t\t\t\t\t\t\t<select name=\"size\" @change=", ">\n\t\t\t\t\t\t\t\t<option value=\"XS\">XS</option>\n\t\t\t\t\t\t\t\t<option value=\"S\">S</option>\n\t\t\t\t\t\t\t\t<option value=\"M\">M</option>\n\t\t\t\t\t\t\t\t<option value=\"XS\">L</option>\n\t\t\t\t\t\t\t\t<option value=\"XS\">XL</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t<label for=\"quantity\">Quantity: </label>\n\t\t\t\t\t\t\t<select name=\"quantity\" @change=", ">\n\t\t\t\t\t\t\t\t<option value=\"1\">1</option>\n\t\t\t\t\t\t\t\t<option value=\"2\">2</option>\n\t\t\t\t\t\t\t\t<option value=\"3\">3</option>\n\t\t\t\t\t\t\t\t<option value=\"4\">4</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h6 id=\"description-title\">Description:</h6>\n\t\t\t\t\t\t\t<div class=\"product-detail\">\n\t\t\t\t\t\t\t\t", "\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h6 id=\"features-title\">Features</h6>\n\t\t\t\t\t\t\t<div class=\"product-detail\">\n\t\t\t\t\t\t\t\t", "\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<button id=\"checkout\" >ADD TO CAR</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -30015,7 +30041,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\t\t\t<app-header \n\t\t\t\t.title=", "\n\t\t\t\t.leftIcon=", "\n\t\t\t\t.rightIcon=", "\n\t\t\t\t.menuOptions=", "></app-header>\n\t\t\t<app-router active-route=", ">\n\t\t\t\t<app-home route='home'></app-home>\n\t\t\t\t<app-catalog \n\t\t\t\troute='mens_outerwear'\n\t\t\t\t.image=", "\n\t\t\t\t.title=", "\n\t\t\t\t.catalogItems=", "></app-catalog>\n\t\t\t\t<app-detail\n\t\t\t\troute='product_detail'></app-detail>\n\t\t\t\t<app-cart route=\"cart\"></app-cart>\n\t\t\t</app-router>\n\t\t"]);
+  var data = _taggedTemplateLiteral(["\n\t\t\t<app-header \n\t\t\t\t.title=", "\n\t\t\t\t.leftIcon=", "\n\t\t\t\t.rightIcon=", "\n\t\t\t\t.menuOptions=", ">\n\t\t\t</app-header>\n\t\t\t<app-router active-route=", ">\n\t\t\t\t<app-home route='home'></app-home>\n\t\t\t\t<app-catalog \n\t\t\t\troute='products'></app-catalog>\n\t\t\t\t<app-detail\n\t\t\t\troute='product_detail'></app-detail>\n\t\t\t\t<app-cart route=\"cart\"></app-cart>\n\t\t\t</app-router>\n\t\t"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -30105,41 +30131,6 @@ var MyApp = /*#__PURE__*/function (_router) {
         event: 'link-4'
       }]
     };
-    _this.appCatalogA = {
-      title: "Men's Outerwear",
-      image: 'https://shop.polymer-project.org/esm-bundled/images/mens_outerwear.jpg',
-      catalogItems: [{
-        name: "Men's Tech Shell Full-Zip",
-        price: 50.20,
-        image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
-        url: '/'
-      }, {
-        name: "Men's Tech Shell Full-Zip",
-        price: 50.20,
-        image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
-        url: '/'
-      }, {
-        name: "Men's Tech Shell Full-Zip",
-        price: 50.20,
-        image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
-        url: '/'
-      }, {
-        name: "Men's Tech Shell Full-Zip",
-        price: 50.20,
-        image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
-        url: '/'
-      }, {
-        name: "Men's Tech Shell Full-Zip",
-        price: 50.20,
-        image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
-        url: '/'
-      }, {
-        name: "Men's Tech Shell Full-Zip",
-        price: 50.20,
-        image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
-        url: '/'
-      }]
-    };
     return _this;
   } // ------------------------
   // Using lit-element-router
@@ -30156,8 +30147,9 @@ var MyApp = /*#__PURE__*/function (_router) {
     }
   }, {
     key: "render",
+    // Cada componente no debe recibir ropiedades
     value: function render() {
-      return (0, _litElement.html)(_templateObject(), this.appHeaderProps.title, this.appHeaderProps.leftIcon, this.appHeaderProps.rightIcon, this.appHeaderProps.menuOptions, this.route, this.appCatalogA.image, this.appCatalogA.title, this.appCatalogA.catalogItems);
+      return (0, _litElement.html)(_templateObject(), this.appHeaderProps.title, this.appHeaderProps.leftIcon, this.appHeaderProps.rightIcon, this.appHeaderProps.menuOptions, this.route);
     }
   }], [{
     key: "routes",
@@ -30166,7 +30158,7 @@ var MyApp = /*#__PURE__*/function (_router) {
         name: 'home',
         pattern: ''
       }, {
-        name: 'mens_outerwear',
+        name: 'products',
         pattern: 'products/:productId'
       }, {
         name: 'product_detail',
@@ -30218,7 +30210,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59736" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50049" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
