@@ -92,4 +92,4 @@ class AppHomeItem extends LitElement {
     }
 }
 
-customElements.define('app-home-item', AppHomeItem);
+customElements.define('app-home-item', AppHomeItem)

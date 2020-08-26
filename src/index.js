@@ -7,6 +7,7 @@ import './components/app-router';
 import './components/app-catalog';
 import './components/app-detail';
 import './components/app-cart';
+import './components/app-checkout';
 
 // Import tools
 import { router } from 'lit-element-router';
@@ -70,6 +71,9 @@ class MyApp extends router(LitElement) {
 		}, {
 			name: 'cart',
 			pattern: 'cart/:userId'
+		}, {
+			name: 'checkout',
+			pattern: 'purchase/checkout'
 		}]
 	}
 
@@ -106,6 +110,7 @@ class MyApp extends router(LitElement) {
 				<app-detail
 				route='product_detail'></app-detail>
 				<app-cart route="cart"></app-cart>
+				<app-checkout route="checkout"></app-checkout>
 			</app-router>
 		`;
 	}

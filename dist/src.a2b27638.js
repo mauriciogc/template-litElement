@@ -30009,7 +30009,381 @@ var AppCart = /*#__PURE__*/function (_LitElement) {
 }(_litElement.LitElement);
 
 customElements.define("app-cart", AppCart);
-},{"lit-element":"node_modules/lit-element/lit-element.js","./cart-item":"src/components/cart-item.js"}],"src/index.js":[function(require,module,exports) {
+},{"lit-element":"node_modules/lit-element/lit-element.js","./cart-item":"src/components/cart-item.js"}],"src/components/app-input.js":[function(require,module,exports) {
+"use strict";
+
+var _litElement = require("lit-element");
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n        :host {\n            display: block;\n            font-family: Roboto, Noto, sans-serif;\n        }\n        .form__group {\n            position: relative;\n            padding: 15px 0 0;\n            margin-top: 10px;\n            width: 100%;\n        }\n        .form__field {\n            font-family: inherit;\n            width: 100%;\n            border: 0;\n            border-bottom: 2px solid black;\n            outline: 0\n            color: black;\n            font-weight: 200;\n            padding: 7px 0;\n            background: transparent;\n            transition: border-color 0.2s;\n        }\n        .form__field::placeholder {\n            color: transparent;\n        }\n        .form__field:placeholder-shown ~ .form__label {\n            font-size: 1rem;\n            cursor: text;\n            top: 20px;\n        }\n        .form__label {\n            position: absolute;\n            top: 0;\n            display: block;\n            transition: 0.2s;\n            font-size: 1rem;\n            color: black;\n        }\n        .form__field:focus {\n            padding-bottom: 6px;  \n            outline-width: 0;\n            border-width: 3px;\n            border-image: linear-gradient(to right, #11998e, #11998e);\n            border-image-slice: 1;\n        }\n\n        .form__field:focus ~ .form__label {\n            position: absolute;\n            top: 0;\n            display: block;\n            transition: 0.2s;\n            font-size: 1rem;\n            color: black;\n        }\n        "]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n        <div class=\"form__group field\">\n            <input @input=", " type=", " class=\"form__field\" placeholder=", " name=", " id=", " required />\n            <label for=", " class=\"form__label\">", "</label>\n        </div>\n        "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var AppInput = /*#__PURE__*/function (_LitElement) {
+  _inherits(AppInput, _LitElement);
+
+  var _super = _createSuper(AppInput);
+
+  function AppInput() {
+    _classCallCheck(this, AppInput);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(AppInput, [{
+    key: "render",
+    value: function render() {
+      return (0, _litElement.html)(_templateObject(), this._handleInput, this.type, this.label, this.name, this.id, this.name, this.label);
+    }
+  }, {
+    key: "_handleInput",
+    value: function _handleInput(e) {
+      this.dispatchEvent(new CustomEvent(this.event, {
+        bubbles: true,
+        composed: true,
+        detail: {
+          origin: this.name,
+          value: e.target.value
+        }
+      }));
+    }
+  }], [{
+    key: "properties",
+    get: function get() {
+      return {
+        name: {
+          type: String
+        },
+        label: {
+          type: String
+        },
+        event: {
+          type: String
+        },
+        id: {
+          type: String
+        },
+        type: {
+          type: String
+        }
+      };
+    }
+  }, {
+    key: "styles",
+    get: function get() {
+      return (0, _litElement.css)(_templateObject2());
+    }
+  }]);
+
+  return AppInput;
+}(_litElement.LitElement);
+
+customElements.define("app-input", AppInput);
+},{"lit-element":"node_modules/lit-element/lit-element.js"}],"src/components/app-select.js":[function(require,module,exports) {
+"use strict";
+
+var _litElement = require("lit-element");
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n        :host {\n            display: block;\n            font-family: Roboto, Noto, sans-serif;\n        }\n        .form__group {\n            position: relative;\n            padding: 15px 0 0;\n            margin-top: 10px;\n            width: 100%;\n        }\n        .form__field {\n            font-family: inherit;\n            width: 100%;\n            border: 0;\n            border-bottom: 2px solid black;\n            outline: 0\n            color: black;\n            font-weight: 200;\n            padding: 7px 0;\n            background: transparent;\n            transition: border-color 0.2s;\n        }\n        .form__field::placeholder {\n            color: transparent;\n        }\n        .form__field:placeholder-shown ~ .form__label {\n            font-size: 1rem;\n            cursor: text;\n            top: 20px;\n        }\n        .form__label {\n            position: absolute;\n            top: 0;\n            display: block;\n            transition: 0.2s;\n            font-size: 1rem;\n            color: black;\n        }\n        .form__field:focus {\n            padding-bottom: 6px;  \n            outline-width: 0;\n            border-width: 3px;\n            border-image: linear-gradient(to right, #11998e, #11998e);\n            border-image-slice: 1;\n        }\n\n        .form__field:focus ~ .form__label {\n            position: absolute;\n            top: 0;\n            display: block;\n            transition: 0.2s;\n            font-size: 1rem;\n            color: black;\n        }\n        "]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["<option value=", ">", "</option>"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n        <div class=\"form__group field\">\n            <select @change=", " class=\"form__field\" placeholder=\"some placeholder\" name=", " id=", " required >\n                ", "\n            </select>\n            <label for=", " class=\"form__label\">", "</label>\n        </div>\n        "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var AppSelect = /*#__PURE__*/function (_LitElement) {
+  _inherits(AppSelect, _LitElement);
+
+  var _super = _createSuper(AppSelect);
+
+  function AppSelect() {
+    _classCallCheck(this, AppSelect);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(AppSelect, [{
+    key: "render",
+    value: function render() {
+      return (0, _litElement.html)(_templateObject(), this._handleChange, this.name, this.id, this.options.map(function (option) {
+        return (0, _litElement.html)(_templateObject2(), option, option);
+      }), this.name, this.label);
+    }
+  }, {
+    key: "_handleChange",
+    value: function _handleChange(e) {
+      this.dispatchEvent(new CustomEvent(this.event, {
+        bubbles: true,
+        composed: true,
+        detail: {
+          origin: this.name,
+          value: e.target.value
+        }
+      }));
+    }
+  }], [{
+    key: "properties",
+    get: function get() {
+      return {
+        name: {
+          type: String
+        },
+        label: {
+          type: String
+        },
+        event: {
+          type: String
+        },
+        id: {
+          type: String
+        },
+        options: {
+          type: Array
+        }
+      };
+    }
+  }, {
+    key: "styles",
+    get: function get() {
+      return (0, _litElement.css)(_templateObject3());
+    }
+  }]);
+
+  return AppSelect;
+}(_litElement.LitElement);
+
+customElements.define("app-select", AppSelect);
+},{"lit-element":"node_modules/lit-element/lit-element.js"}],"src/components/app-checkout.js":[function(require,module,exports) {
+"use strict";
+
+var _litElement = require("lit-element");
+
+require("./app-input");
+
+require("./app-select");
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["<li>\n                                    <div>", "</div>\n                                    <div>", "</div>\n                                </li>"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n        <div class=\"main-container\">\n            <div class=\"head\">CHECKOUT</div>\n            <div class=\"form-container\" @input-changed=", ">\n                <div class=\"horizontal-container\">\n                    <div class=\"sub-container\">\n                        <h4>Account information</h4>\n                        <app-input\n                        name=\"email\"\n                        label=\"Email\"\n                        id=\"email\",\n                        type=\"text\"\n                        event=\"input-changed\"></app-input>\n                        <app-input\n                        name=\"phone\"\n                        label=\"Phone Number\"\n                        id=\"phone\"\n                        type=\"number\"\n                        event=\"input-changed\"></app-input>\n                        <h4>Shipping Address</h4>\n                        <app-input\n                        name=\"address\"\n                        label=\"Address\"\n                        id=\"address\"\n                        type=\"text\"\n                        event=\"input-changed\"></app-input>\n                        <app-input\n                        name=\"city\"\n                        label=\"City\"\n                        id=\"city\"\n                        type=\"text\"\n                        event=\"input-changed\"></app-input>\n                        <div class=\"form-container\">\n                            <div class=\"horizontal-container\">\n                                <div class=\"sub-container\">\n                                    <app-input\n                                    name=\"state\"\n                                    label=\"State/Province\"\n                                    id=\"state\"\n                                    type=\"text\"\n                                    event=\"input-changed\"></app-input>\n                                </div>\n                            </div>\n                            <div class=\"horizontal-container\">\n                                <div class=\"sub-container\">\n                                    <app-input\n                                    name=\"cp\"\n                                    label=\"Zip/Postal Code\"\n                                    id=\"cp\"\n                                    type=\"number\"\n                                    event=\"input-changed\"></app-input>\n                                </div>\n                            </div>\n                        </div>\n                        <app-select\n                        name=\"country\"\n                        label=\"Country\"\n                        id=\"country\"\n                        event=\"input-changed\"\n                        .options=", "></app-select>\n                    </div>\n                </div>\n                <div class=\"horizontal-container\">\n                    <div class=\"sub-container\">\n                        <h4>Payment Method</h4>\n                        <app-input\n                        name=\"card-holder\"\n                        label=\"Card Holder Name\"\n                        id=\"card-holder\"\n                        type=\"text\"\n                        event=\"input-changed\"></app-input>\n                        <app-input\n                        name=\"card\"\n                        label=\"Card Number\"\n                        id=\"card\"\n                        type=\"number\"\n                        event=\"input-changed\"></app-input>\n                        <div class=\"form-container\">\n                            <div class=\"horizontal-container\">\n                                <div class=\"sub-container\">\n                                    <app-select\n                                    name=\"cardMonth\"\n                                    label=\"Expiry\"\n                                    id=\"cardMonth\"\n                                    event=\"input-changed\"\n                                    .options=", "></app-select>\n                                </div>\n                            </div>\n                            <div class=\"horizontal-container\">\n                                <div class=\"sub-container\">\n                                <app-select\n                                    name=\"cardyear\"\n                                    label=\"Year\"\n                                    id=\"cardYear\"\n                                    event=\"input-changed\"\n                                    .options=", "></app-select>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"form-container\">\n                            <div class=\"horizontal-container\">\n                                <div class=\"sub-container\">\n                                    <app-input\n                                    name=\"cvv\"\n                                    label=\"CVV\"\n                                    id=\"cvv\"\n                                    type=\"number\"\n                                    event=\"input-changed\"></app-input>\n                                </div>\n                            </div>\n                        </div>\n                        <h4>Order Summary</h4>\n                        <div class=\"summary\" >\n                            <ul>\n                                ", "\n                            </ul>\n                        </div>\n                        <button id=\"shop-button\" @click=", ">\n                            <a href=\"/\">PLACE ORDER</a>\n                        </button>\n                    </div>\n                </div>\n            </div>\n        </div>"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n        :host {\n            display: block;\n            font-family: Roboto, Noto, sans-serif;\n        }\n        .main-contaainer {\n            margin-top\n        }\n        .head {\n            text-align: center;\n        }\n        .form-container {\n            width: 100%;\n            display: flex;\n        }\n        .horizontal-container {\n            width: 50%;\n            max-width: 50%;\n        }\n        .sub-container {\n            padding: 1rem;\n        }\n        .summary li{\n            display: flex;\n            justify-content: space-between;\n        }\n        .form.subtitle {}\n        #shop-button {\n            background-color: #FFF;\n            border: none;\n        }\n        #shop-button > * {\n            display: inline-block;\n            box-sizing: border-box;\n            border: 2px solid #000;\n            background-color: #FFF;\n            font-size: 14px;\n            font-weight: 500;\n            color: var(--app-primary-color);\n            margin: 0;\n            padding: 8px 44px;\n            text-align: center;\n            text-decoration: none;\n            text-transform: uppercase;\n            border-radius: 0;\n            outline: none;\n        }\n        "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var AppCheckout = /*#__PURE__*/function (_LitElement) {
+  _inherits(AppCheckout, _LitElement);
+
+  var _super = _createSuper(AppCheckout);
+
+  _createClass(AppCheckout, null, [{
+    key: "properties",
+    get: function get() {
+      return {
+        countryOptions: {
+          type: Array
+        },
+        months: {
+          type: Array
+        },
+        years: {
+          type: Array
+        },
+        form: {
+          type: Array
+        },
+        summary: {
+          type: Array
+        }
+      };
+    }
+  }, {
+    key: "styles",
+    get: function get() {
+      return (0, _litElement.css)(_templateObject());
+    }
+  }]);
+
+  function AppCheckout() {
+    var _this;
+
+    _classCallCheck(this, AppCheckout);
+
+    _this = _super.call(this);
+    _this.countryOptions = ['México', 'United States'];
+    _this.months = ['January', 'Febrary', 'March', 'April'];
+    _this.years = [2020, 2021, 2022, 2023, 2024];
+    _this.form = {};
+    _this.summary = [{
+      name: 'Anvil L/S Crew Neck - Grey',
+      price: 22.3
+    }, {
+      name: "Green Flex Fleece Zip Hoodie",
+      price: 13.3
+    }];
+    return _this;
+  }
+
+  _createClass(AppCheckout, [{
+    key: "render",
+    value: function render() {
+      return (0, _litElement.html)(_templateObject2(), this._handleFormChange, this.countryOptions, this.months, this.years, this.summary.map(function (item) {
+        return (0, _litElement.html)(_templateObject3(), item.name, item.price);
+      }), this._handleSubmit);
+    }
+  }, {
+    key: "_handleFormChange",
+    value: function _handleFormChange(_ref) {
+      var detail = _ref.detail;
+      this.form = _objectSpread(_objectSpread({}, this.form), {}, _defineProperty({}, detail.origin, detail.value));
+    }
+  }, {
+    key: "_handleSubmit",
+    value: function _handleSubmit() {}
+  }]);
+
+  return AppCheckout;
+}(_litElement.LitElement);
+
+customElements.define("app-checkout", AppCheckout);
+},{"lit-element":"node_modules/lit-element/lit-element.js","./app-input":"src/components/app-input.js","./app-select":"src/components/app-select.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _litElement = require("lit-element");
@@ -30026,6 +30400,8 @@ require("./components/app-detail");
 
 require("./components/app-cart");
 
+require("./components/app-checkout");
+
 var _litElementRouter = require("lit-element-router");
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -30041,7 +30417,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\t\t\t<app-header \n\t\t\t\t.title=", "\n\t\t\t\t.leftIcon=", "\n\t\t\t\t.rightIcon=", "\n\t\t\t\t.menuOptions=", ">\n\t\t\t</app-header>\n\t\t\t<app-router active-route=", ">\n\t\t\t\t<app-home route='home'></app-home>\n\t\t\t\t<app-catalog \n\t\t\t\troute='products'></app-catalog>\n\t\t\t\t<app-detail\n\t\t\t\troute='product_detail'></app-detail>\n\t\t\t\t<app-cart route=\"cart\"></app-cart>\n\t\t\t</app-router>\n\t\t"]);
+  var data = _taggedTemplateLiteral(["\n\t\t\t<app-header \n\t\t\t\t.title=", "\n\t\t\t\t.leftIcon=", "\n\t\t\t\t.rightIcon=", "\n\t\t\t\t.menuOptions=", ">\n\t\t\t</app-header>\n\t\t\t<app-router active-route=", ">\n\t\t\t\t<app-home route='home'></app-home>\n\t\t\t\t<app-catalog \n\t\t\t\troute='products'></app-catalog>\n\t\t\t\t<app-detail\n\t\t\t\troute='product_detail'></app-detail>\n\t\t\t\t<app-cart route=\"cart\"></app-cart>\n\t\t\t\t<app-checkout route=\"checkout\"></app-checkout>\n\t\t\t</app-router>\n\t\t"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -30169,6 +30545,9 @@ var MyApp = /*#__PURE__*/function (_router) {
       }, {
         name: 'cart',
         pattern: 'cart/:userId'
+      }, {
+        name: 'checkout',
+        pattern: 'purchase/checkout'
       }];
     }
   }, {
@@ -30182,7 +30561,7 @@ var MyApp = /*#__PURE__*/function (_router) {
 }((0, _litElementRouter.router)(_litElement.LitElement));
 
 customElements.define("my-app", MyApp);
-},{"lit-element":"node_modules/lit-element/lit-element.js","./components/app-header":"src/components/app-header.js","./components/app-home":"src/components/app-home.js","./components/app-router":"src/components/app-router.js","./components/app-catalog":"src/components/app-catalog.js","./components/app-detail":"src/components/app-detail.js","./components/app-cart":"src/components/app-cart.js","lit-element-router":"node_modules/lit-element-router/lit-element-router.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"lit-element":"node_modules/lit-element/lit-element.js","./components/app-header":"src/components/app-header.js","./components/app-home":"src/components/app-home.js","./components/app-router":"src/components/app-router.js","./components/app-catalog":"src/components/app-catalog.js","./components/app-detail":"src/components/app-detail.js","./components/app-cart":"src/components/app-cart.js","./components/app-checkout":"src/components/app-checkout.js","lit-element-router":"node_modules/lit-element-router/lit-element-router.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -30210,7 +30589,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50049" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58218" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
