@@ -1,7 +1,8 @@
 import { LitElement, html, css } from "lit-element";
 
 import './app-input';
-import './app-select'
+import './app-select';
+import './app-button';
 
 class AppCheckout extends LitElement {
 	static get properties() {
@@ -9,7 +10,7 @@ class AppCheckout extends LitElement {
             countryOptions: {type: Array},
             months: {type: Array},
             years: {type: Array},
-            form: {type: Array},
+            form: {type: Object},
             summary: {type: Array}
 		};
     }
@@ -44,27 +45,6 @@ class AppCheckout extends LitElement {
         .summary li{
             display: flex;
             justify-content: space-between;
-        }
-        .form.subtitle {}
-        #shop-button {
-            background-color: #FFF;
-            border: none;
-        }
-        #shop-button > * {
-            display: inline-block;
-            box-sizing: border-box;
-            border: 2px solid #000;
-            background-color: #FFF;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--app-primary-color);
-            margin: 0;
-            padding: 8px 44px;
-            text-align: center;
-            text-decoration: none;
-            text-transform: uppercase;
-            border-radius: 0;
-            outline: none;
         }
         `;
     }
@@ -205,9 +185,7 @@ class AppCheckout extends LitElement {
                                 </li>`)}
                             </ul>
                         </div>
-                        <button id="shop-button" @click=${this._handleSubmit}>
-                            <a href="/">PLACE ORDER</a>
-                        </button>
+                        <app-button name="PlACE ORDER" @click=${this._handleSubmit}></app-button>
                     </div>
                 </div>
             </div>
@@ -219,10 +197,11 @@ class AppCheckout extends LitElement {
             ...this.form,
             [detail.origin]: detail.value
         }
+        console.log(this.form);
     }
 
     _handleSubmit() {
-
+        console.log(this.form);
     }
 }
 customElements.define("app-checkout", AppCheckout);

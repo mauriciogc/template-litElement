@@ -1,5 +1,7 @@
 import {LitElement, html, css}from 'lit-element';
 
+import './app-button';
+
 class AppHomeItem extends LitElement {
     static get properties() {
         return {
@@ -45,26 +47,6 @@ class AppHomeItem extends LitElement {
             position: relative;
             overflow: hidden;
         }
-        #shop-button {
-            background-color: #FFF;
-            border: none;
-        }
-        #shop-button > * {
-            display: inline-block;
-            box-sizing: border-box;
-            border: 2px solid #000;
-            background-color: #FFF;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--app-primary-color);
-            margin: 0;
-            padding: 8px 44px;
-            text-align: center;
-            text-decoration: none;
-            text-transform: uppercase;
-            border-radius: 0;
-            outline: none;
-        }
         `;
     }
 
@@ -83,9 +65,10 @@ class AppHomeItem extends LitElement {
             </div>
             <div id="text-container">
                 <div id="title">${this.title}</div>
-                <button id="shop-button" @click=${() => {this.dispatch(this.button.event)}}>
-                    <a href="/">${this.button.name}</a>
-                </button>
+                <app-button
+                .name=${this.button.name}
+                .event=${this.button.event}>
+                </app-button>
             </div>
         </div>
         `;

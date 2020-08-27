@@ -69,6 +69,12 @@ class AppInput extends LitElement {
         }
         `;
     }
+
+    constructor() {
+        super();
+        this.event = '';
+        this.name = '';
+    }
     
 	render() {
         return html`
@@ -80,14 +86,16 @@ class AppInput extends LitElement {
     }
     
     _handleInput(e) {
-        this.dispatchEvent(new CustomEvent(this.event, {
-            bubbles: true,
-            composed: true,
-            detail: {
-                origin: this.name,
-                value: e.target.value
-            }
-        }));
+        if (this.event) {
+            this.dispatchEvent(new CustomEvent(this.event, {
+                bubbles: true,
+                composed: true,
+                detail: {
+                    origin: this.name,
+                    value: e.target.value
+                }
+            }));
+        }
     }
 }
 customElements.define("app-input", AppInput);

@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "lit-element";
 
 import './cart-item';
+import './app-button';
 
 class AppCart extends LitElement {
 	static get properties() {
@@ -81,22 +82,6 @@ class AppCart extends LitElement {
             line-height: 1.5;
             margin-right: 2rem
         }
-        .checkout {
-            display: inline-block;
-            box-sizing: border-box;
-            border: 2px solid #000;
-            background-color: #FFF;
-            font-size: 14px;
-            font-weight: 500;
-            color: black;
-            margin: 0;
-            padding: 8px 44px;
-            text-align: center;
-            text-decoration: none;
-            text-transform: uppercase;
-            border-radius: 0;
-            outline: none;
-        }
         `;
     }
 
@@ -122,7 +107,7 @@ class AppCart extends LitElement {
             </div>
             <div class="footer">
                 <div class="total">Total: $${this.total}</div>
-                <button class="checkout">Checkout</button>
+                <app-button name="Checkout"></app-button>
             </div>
         </div>`;
     }

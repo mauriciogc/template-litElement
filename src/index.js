@@ -61,16 +61,16 @@ class MyApp extends router(LitElement) {
 			pattern: '',
 		}, {
 			name: 'products',
-			pattern: 'products/:productId'
+			pattern: 'products/:productName'
 		}, {
 			name: 'product_detail',
-			pattern: 'product_detail/:id'
+			pattern: 'product-detail/:id'
 		}, {
 			name: 'not-found',
 			pattern: '*'
 		}, {
 			name: 'cart',
-			pattern: 'cart/:userId'
+			pattern: 'cart'
 		}, {
 			name: 'checkout',
 			pattern: 'purchase/checkout'

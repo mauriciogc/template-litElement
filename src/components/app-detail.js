@@ -1,5 +1,7 @@
 import { LitElement, html, css } from "lit-element";
 
+import './app-button';
+
 class AppDetail extends LitElement {
 	static get properties() {
 		return {
@@ -85,29 +87,6 @@ class AppDetail extends LitElement {
 			font-size: 13px;
 			line-height: 1.5;
 		}
-		#checkout {
-			box-sizing: border-box;
-			border: 2px solid #000;
-			background-color: #FFF;
-			font-size: 14px;
-			font-weight: 500;
-			color: black;
-			margin: 0;
-			padding: 8px 44px;
-			text-align: center;
-			text-decoration: none;
-			text-transform: uppercase;
-			border-radius: 0;
-			outline: none;
-			cursor: pointer;
-		}
-		#checkout:active {
-			background-color: black;
-    		color: #FFF;
-		}
-		#checkout:focus {
-			background-color: #c5cad3;
-		}
 		`;
 	}
 
@@ -162,7 +141,7 @@ class AppDetail extends LitElement {
 								</ul>` : 'Info not available'}
 							</div>
 						</div>
-						<button id="checkout" >ADD TO CAR</button>
+						<app-button name="ADD TO CAR" ></app-button>
 					</div>
 				</div>
 			</div>
