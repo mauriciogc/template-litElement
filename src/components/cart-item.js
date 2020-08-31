@@ -11,6 +11,7 @@ class CartItem extends LitElement {
             name: {type: String},
             productId: {type: Number},
             quantity: {type: Number},
+            quantityEvent: {type: String},
             size: {type: String},
             price: {type: Number},
             icon: {type: String},
@@ -59,10 +60,10 @@ class CartItem extends LitElement {
             <div id="right-container">
                 <div id="quantity">
                     <label for="select-quantity">Qty: </label>
-                    <select name="select-quantity">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
+                    <select @change=${({target}) => this.dispatch(this.quantityEvent, target.value)} name="select-quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
                     </select>
                 </div>
                 <div id="size">
@@ -73,18 +74,21 @@ class CartItem extends LitElement {
                 </div>
                 <div id="icon">
                 <paper-icon-button 
-                    @click=${this.dispatch} 
+                    @click=${() => this.dispatch(this.event)} 
                     icon=${this.icon}></paper-icon-button>
                 </div>
             </div>
         </div>`;
     }
     
-    dispatch() {
-        this.dispatchEvent(new CustomEvent(this.event, {
+    dispatch(event, ...rest) {
+        this.dispatchEvent(new CustomEvent(event, {
             bubbles: true,
             composed: true,
-            detail: this.index
+            detail: {
+                index: this.index,
+                ...rest
+            }
         }));
     }
 }

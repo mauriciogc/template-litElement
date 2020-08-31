@@ -87,6 +87,43 @@ class AppDetail extends LitElement {
 			font-size: 13px;
 			line-height: 1.5;
 		}
+		@media (max-width: 550px) {
+			#container {
+				flex-direction: column;
+				justify-content: flex-start;
+			}
+			#image-container {
+				width: 100%;
+				margin: 64px 0px;
+				display: flex;
+				justify-content: center;
+			}
+			#image {
+				width: 90%
+			}
+			#detail-container {
+				width: 100%;
+				max-width: 100%;
+				margin: 64px 0px;
+				box-sizing: border-box;
+				padding: 0rem 1rem;
+			}
+			#form {
+				font-size: 1.3rem;
+			}
+			#description-title {
+				font-size: 1.3rem;
+			}
+			#description-title ~ div {
+				font-size: 1rem;
+			}
+			#features-title {
+				font-size: 1.3rem;
+			}
+			#features-title ~ div {
+				font-size: 1rem;
+			}
+		}
 		`;
 	}
 
@@ -108,7 +145,7 @@ class AppDetail extends LitElement {
 				<div id="detail-container">
 					<div id="form-container">
 						<div id="name">${this.name || ''}</div>
-						<div id="price">${this.price}</div>
+						<div id="price">$${this.price}</div>
 						<div id="form">
 							<label for="size">Size:</label>
 							<select name="size" @change=${(e) => {this.sizeSelected(e.target)}}>

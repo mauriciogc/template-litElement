@@ -85,6 +85,25 @@ class AppCatalog extends LitElement {
             margin: 1rem 0rem;
             width: 30%
         }
+        @media (max-width: 550px) {
+            #image-container {
+                height: 220px;
+            }
+            .image {
+                max-height: 100%;
+                width: auto;
+            }
+            #title {
+                font-size: 1.5rem
+            }
+            #items-container {
+                flex-direction: column;
+                flex-wrap: non-wrap;
+            }
+            .catalog-item {
+                width: 100%;
+            }
+        }
         `;
     }
 
@@ -92,10 +111,10 @@ class AppCatalog extends LitElement {
         return html`
         <div id="main-container">
             <div id='image-container'>
-                <img src="${this.image}" >
+                <img class="image" src="${this.image}" >
             </div>
             <div id="text-container">
-                <div>${this.title}</div>
+                <div id="title">${this.title}</div>
                 <div id="items-number">(${this.catalogItems.length}) items</div>
             </div>
             <div id="items-container">

@@ -46,6 +46,22 @@ class AppCheckout extends LitElement {
             display: flex;
             justify-content: space-between;
         }
+        @media (max-width: 550px) {
+            h4 {
+                font-size: 1.3rem;
+            }
+            .main-container > .form-container {
+                flex-direction: column;
+            }
+            .main-container > .form-container .horizontal-container {
+                width: 100%;
+                max-width: 100%;
+            }
+            .button {
+                display: flex;
+                justify-content: center;
+            }
+        }
         `;
     }
 
@@ -185,7 +201,9 @@ class AppCheckout extends LitElement {
                                 </li>`)}
                             </ul>
                         </div>
-                        <app-button name="PlACE ORDER" @click=${this._handleSubmit}></app-button>
+                        <div class="button">
+                            <app-button name="PlACE ORDER" @click=${this._handleSubmit}></app-button>
+                        </div>
                     </div>
                 </div>
             </div>

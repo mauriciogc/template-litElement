@@ -33,6 +33,11 @@ class AppButton extends LitElement {
             border-radius: 0;
             outline: none;
         }
+        @media (max-width: 550px) {
+            #shop-button > * {
+                font-size: 1.3rem;
+            }
+        }
         `;
     }
     

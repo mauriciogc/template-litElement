@@ -28764,7 +28764,7 @@ var _litElement = require("lit-element");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n        #shop-button {\n            background-color: #FFF;\n            border: none;\n        }\n        #shop-button:hover {\n            cursor: pointer;\n        }\n        #shop-button > * {\n            display: inline-block;\n            box-sizing: border-box;\n            border: 2px solid #000;\n            background-color: #FFF;\n            font-size: 14px;\n            font-weight: 500;\n            color: var(--app-primary-color);\n            margin: 0;\n            padding: 8px 44px;\n            text-align: center;\n            text-decoration: none;\n            text-transform: uppercase;\n            border-radius: 0;\n            outline: none;\n        }\n        "]);
+  var data = _taggedTemplateLiteral(["\n        #shop-button {\n            background-color: #FFF;\n            border: none;\n        }\n        #shop-button:hover {\n            cursor: pointer;\n        }\n        #shop-button > * {\n            display: inline-block;\n            box-sizing: border-box;\n            border: 2px solid #000;\n            background-color: #FFF;\n            font-size: 14px;\n            font-weight: 500;\n            color: var(--app-primary-color);\n            margin: 0;\n            padding: 8px 44px;\n            text-align: center;\n            text-decoration: none;\n            text-transform: uppercase;\n            border-radius: 0;\n            outline: none;\n        }\n        @media (max-width: 550px) {\n            #shop-button > * {\n                font-size: 1.3rem;\n            }\n        }\n        "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -28862,7 +28862,7 @@ require("./app-button");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n        :host {\n            display: block;\n            font-family: 'Roboto', 'Noto', sans-serif;\n        }\n        #main-container {\n            width: 100%;\n        }\n        #text-container {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n            justify-content: center;\n            padding: 2rem 0rem;\n        }\n        #text-container > * {\n            margin: 1rem;\n        }\n        #image-container {\n            height: 320px;\n            display: flex;\n            justify-content: center;\n            position: relative;\n            overflow: hidden;\n        }\n        "]);
+  var data = _taggedTemplateLiteral(["\n        :host {\n            display: block;\n            font-family: 'Roboto', 'Noto', sans-serif;\n        }\n        #main-container {\n            width: 100%;\n        }\n        #text-container {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n            justify-content: center;\n            padding: 2rem 0rem;\n        }\n        #text-container > * {\n            margin: 1rem;\n        }\n        #image-container {\n            height: 320px;\n            display: flex;\n            justify-content: center;\n            position: relative;\n            overflow: hidden;\n        }\n\n        @media (max-width: 550px) {\n            #title {\n                font-size: 1.5rem;\n                font-weight: 300;\n            }\n            #image-container {\n                height: 200px;\n            }\n            .image {\n                height: 100%;\n                width: auto;\n            }\n        }\n        "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -28872,7 +28872,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n        <div id=\"main-container\">\n            <div id=\"image-container\">\n                <img src=", " >\n            </div>\n            <div id=\"text-container\">\n                <div id=\"title\">", "</div>\n                <app-button\n                .name=", "\n                .event=", ">\n                </app-button>\n            </div>\n        </div>\n        "]);
+  var data = _taggedTemplateLiteral(["\n        <div id=\"main-container\">\n            <div id=\"image-container\">\n                <img class=\"image\" src=", " >\n            </div>\n            <div id=\"text-container\">\n                <div id=\"title\">", "</div>\n                <app-button\n                .name=", "\n                .event=", ">\n                </app-button>\n            </div>\n        </div>\n        "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -29065,28 +29065,28 @@ var AppHome = /*#__PURE__*/function (_LitElement) {
       title: "Men's Outerwear",
       button: {
         name: 'SHOP NOW',
-        event: 'ap-home-button-clicked'
+        event: 'app-home-button-clicked'
       }
     }, {
       image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_outerwear.jpg',
       title: "Ladies Outerwear",
       button: {
         name: 'SHOP NOW',
-        event: 'ap-home-button-clicked'
+        event: 'app-home-button-clicked'
       }
     }, {
       image: 'https://shop.polymer-project.org/esm-bundled/images/mens_tshirts.jpg',
       title: "Men's T-Shirts",
       button: {
         name: 'SHOP NOW',
-        event: 'ap-home-button-clicked'
+        event: 'app-home-button-clicked'
       }
     }, {
       image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_tshirts.jpg',
       title: "Ladies T-Shirts",
       button: {
         name: 'SHOP NOW',
-        event: 'ap-home-button-clicked'
+        event: 'app-home-button-clicked'
       }
     }];
     _this.appHomeA = {
@@ -29532,7 +29532,7 @@ require("./catalog-item");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n        :host {\n            width: 100%;\n            font-family: 'Roboto', 'Noto', sans-serif;\n        }\n        #image-container {\n            height: 320px;\n            display: flex;\n            justify-content: center;\n            position: relative;\n            overflow: hidden;\n        }\n        #text-container {\n            padding: 1.5rem;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n            justify-content: center;\n        }\n        #items-number {\n            color: #757575;\n            font-size: 12px;\n            margin: 0.5rem 0rem;\n\n        }\n        #items-container{\n            display: flex;\n            flex-wrap: wrap;\n            justify-content: space-around;\n        }\n\n        .catalog-item {\n            margin: 1rem 0rem;\n            width: 30%\n        }\n        "]);
+  var data = _taggedTemplateLiteral(["\n        :host {\n            width: 100%;\n            font-family: 'Roboto', 'Noto', sans-serif;\n        }\n        #image-container {\n            height: 320px;\n            display: flex;\n            justify-content: center;\n            position: relative;\n            overflow: hidden;\n        }\n        #text-container {\n            padding: 1.5rem;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n            justify-content: center;\n        }\n        #items-number {\n            color: #757575;\n            font-size: 12px;\n            margin: 0.5rem 0rem;\n\n        }\n        #items-container{\n            display: flex;\n            flex-wrap: wrap;\n            justify-content: space-around;\n        }\n\n        .catalog-item {\n            margin: 1rem 0rem;\n            width: 30%\n        }\n        @media (max-width: 550px) {\n            #image-container {\n                height: 220px;\n            }\n            .image {\n                max-height: 100%;\n                width: auto;\n            }\n            #title {\n                font-size: 1.5rem\n            }\n            #items-container {\n                flex-direction: column;\n                flex-wrap: non-wrap;\n            }\n            .catalog-item {\n                width: 100%;\n            }\n        }\n        "]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -29552,7 +29552,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n        <div id=\"main-container\">\n            <div id='image-container'>\n                <img src=\"", "\" >\n            </div>\n            <div id=\"text-container\">\n                <div>", "</div>\n                <div id=\"items-number\">(", ") items</div>\n            </div>\n            <div id=\"items-container\">\n                ", "\n            </div>\n        </div>\n        "]);
+  var data = _taggedTemplateLiteral(["\n        <div id=\"main-container\">\n            <div id='image-container'>\n                <img class=\"image\" src=\"", "\" >\n            </div>\n            <div id=\"text-container\">\n                <div id=\"title\">", "</div>\n                <div id=\"items-number\">(", ") items</div>\n            </div>\n            <div id=\"items-container\">\n                ", "\n            </div>\n        </div>\n        "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -29673,7 +29673,7 @@ var _litElement = require("lit-element");
 require("./app-button");
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n\t\t:host {\n\t\t\tdisplay: block;\n\t\t\tfont-family: Roboto, Noto, sans-serif;\n\t\t}\n\t\t#main-container {\n\t\t\twidth: 100%;\n\t\t}\n\t\t#container {\n\t\t\tdisplay: flex;\n\t\t\tjustify-content: center;\n\t\t}\n\t\t#name {\n\t\t\tfont-size: 24px;\n\t\t\tfont-weight: 500;\n\t\t\tline-height: 28px;\n\t\t}\n\t\t#price {\n\t\t\tmargin: 16px 0 40px;\n\t\t\tfont-size: 16px;\n\t\t\tcolor: #757575;\n\t\t}\n\t\t#image-container {\n\t\t\tposition: relative;\n\t\t\tmargin: 64px 32px;\n\t\t\twidth: 50%;\n\t\t\tmax-width: 600px;\n\t\t}\n\t\t#image {\n\t\t\twidth 90%;\n\t\t}\n\t\t#detail-container {\n\t\t\tmargin: 64px 32px;\n    \t\twidth: 50%;\n    \t\tmax-width: 400px;\n\t\t}\n\t\t#form-container {\n\t\t\twidth: 100%;\n\n\t\t}\n\t\t#description-title {\n\t\t\tfont-size: 13px;\n\t\t\tline-height: 1.5;\n\t\t}\n\t\t#features-title {\n\t\t\tcolor: #757575;\n\t\t\tfont-size: 13px;\n\t\t\tline-height: 1.5;\n\t\t}\n\t\t.product-detail {\n\t\t\tcolor: #757575;\n\t\t\tfont-size: 13px;\n\t\t\tline-height: 1.5;\n\t\t}\n\t\t"]);
+  var data = _taggedTemplateLiteral(["\n\t\t:host {\n\t\t\tdisplay: block;\n\t\t\tfont-family: Roboto, Noto, sans-serif;\n\t\t}\n\t\t#main-container {\n\t\t\twidth: 100%;\n\t\t}\n\t\t#container {\n\t\t\tdisplay: flex;\n\t\t\tjustify-content: center;\n\t\t}\n\t\t#name {\n\t\t\tfont-size: 24px;\n\t\t\tfont-weight: 500;\n\t\t\tline-height: 28px;\n\t\t}\n\t\t#price {\n\t\t\tmargin: 16px 0 40px;\n\t\t\tfont-size: 16px;\n\t\t\tcolor: #757575;\n\t\t}\n\t\t#image-container {\n\t\t\tposition: relative;\n\t\t\tmargin: 64px 32px;\n\t\t\twidth: 50%;\n\t\t\tmax-width: 600px;\n\t\t}\n\t\t#image {\n\t\t\twidth 90%;\n\t\t}\n\t\t#detail-container {\n\t\t\tmargin: 64px 32px;\n    \t\twidth: 50%;\n    \t\tmax-width: 400px;\n\t\t}\n\t\t#form-container {\n\t\t\twidth: 100%;\n\n\t\t}\n\t\t#description-title {\n\t\t\tfont-size: 13px;\n\t\t\tline-height: 1.5;\n\t\t}\n\t\t#features-title {\n\t\t\tcolor: #757575;\n\t\t\tfont-size: 13px;\n\t\t\tline-height: 1.5;\n\t\t}\n\t\t.product-detail {\n\t\t\tcolor: #757575;\n\t\t\tfont-size: 13px;\n\t\t\tline-height: 1.5;\n\t\t}\n\t\t@media (max-width: 550px) {\n\t\t\t#container {\n\t\t\t\tflex-direction: column;\n\t\t\t\tjustify-content: flex-start;\n\t\t\t}\n\t\t\t#image-container {\n\t\t\t\twidth: 100%;\n\t\t\t\tmargin: 64px 0px;\n\t\t\t\tdisplay: flex;\n\t\t\t\tjustify-content: center;\n\t\t\t}\n\t\t\t#image {\n\t\t\t\twidth: 90%\n\t\t\t}\n\t\t\t#detail-container {\n\t\t\t\twidth: 100%;\n\t\t\t\tmax-width: 100%;\n\t\t\t\tmargin: 64px 0px;\n\t\t\t\tbox-sizing: border-box;\n\t\t\t\tpadding: 0rem 1rem;\n\t\t\t}\n\t\t\t#form {\n\t\t\t\tfont-size: 1.3rem;\n\t\t\t}\n\t\t\t#description-title {\n\t\t\t\tfont-size: 1.3rem;\n\t\t\t}\n\t\t\t#description-title ~ div {\n\t\t\t\tfont-size: 1rem;\n\t\t\t}\n\t\t\t#features-title {\n\t\t\t\tfont-size: 1.3rem;\n\t\t\t}\n\t\t\t#features-title ~ div {\n\t\t\t\tfont-size: 1rem;\n\t\t\t}\n\t\t}\n\t\t"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -29705,7 +29705,7 @@ function _templateObject2() {
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\t\t<div id=\"main-container\">\n\t\t\t<div id=\"container\">\n\t\t\t\t<div id=\"image-container\">\n\t\t\t\t\t<img id=\"image\" src=", " >\n\t\t\t\t</div>\n\t\t\t\t<div id=\"detail-container\">\n\t\t\t\t\t<div id=\"form-container\">\n\t\t\t\t\t\t<div id=\"name\">", "</div>\n\t\t\t\t\t\t<div id=\"price\">", "</div>\n\t\t\t\t\t\t<div id=\"form\">\n\t\t\t\t\t\t\t<label for=\"size\">Size:</label>\n\t\t\t\t\t\t\t<select name=\"size\" @change=", ">\n\t\t\t\t\t\t\t\t<option value=\"XS\">XS</option>\n\t\t\t\t\t\t\t\t<option value=\"S\">S</option>\n\t\t\t\t\t\t\t\t<option value=\"M\">M</option>\n\t\t\t\t\t\t\t\t<option value=\"XS\">L</option>\n\t\t\t\t\t\t\t\t<option value=\"XS\">XL</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t<label for=\"quantity\">Quantity: </label>\n\t\t\t\t\t\t\t<select name=\"quantity\" @change=", ">\n\t\t\t\t\t\t\t\t<option value=\"1\">1</option>\n\t\t\t\t\t\t\t\t<option value=\"2\">2</option>\n\t\t\t\t\t\t\t\t<option value=\"3\">3</option>\n\t\t\t\t\t\t\t\t<option value=\"4\">4</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h6 id=\"description-title\">Description:</h6>\n\t\t\t\t\t\t\t<div class=\"product-detail\">\n\t\t\t\t\t\t\t\t", "\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h6 id=\"features-title\">Features</h6>\n\t\t\t\t\t\t\t<div class=\"product-detail\">\n\t\t\t\t\t\t\t\t", "\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<app-button name=\"ADD TO CAR\" ></app-button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t"]);
+  var data = _taggedTemplateLiteral(["\n\t\t<div id=\"main-container\">\n\t\t\t<div id=\"container\">\n\t\t\t\t<div id=\"image-container\">\n\t\t\t\t\t<img id=\"image\" src=", " >\n\t\t\t\t</div>\n\t\t\t\t<div id=\"detail-container\">\n\t\t\t\t\t<div id=\"form-container\">\n\t\t\t\t\t\t<div id=\"name\">", "</div>\n\t\t\t\t\t\t<div id=\"price\">$", "</div>\n\t\t\t\t\t\t<div id=\"form\">\n\t\t\t\t\t\t\t<label for=\"size\">Size:</label>\n\t\t\t\t\t\t\t<select name=\"size\" @change=", ">\n\t\t\t\t\t\t\t\t<option value=\"XS\">XS</option>\n\t\t\t\t\t\t\t\t<option value=\"S\">S</option>\n\t\t\t\t\t\t\t\t<option value=\"M\">M</option>\n\t\t\t\t\t\t\t\t<option value=\"XS\">L</option>\n\t\t\t\t\t\t\t\t<option value=\"XS\">XL</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t<label for=\"quantity\">Quantity: </label>\n\t\t\t\t\t\t\t<select name=\"quantity\" @change=", ">\n\t\t\t\t\t\t\t\t<option value=\"1\">1</option>\n\t\t\t\t\t\t\t\t<option value=\"2\">2</option>\n\t\t\t\t\t\t\t\t<option value=\"3\">3</option>\n\t\t\t\t\t\t\t\t<option value=\"4\">4</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h6 id=\"description-title\">Description:</h6>\n\t\t\t\t\t\t\t<div class=\"product-detail\">\n\t\t\t\t\t\t\t\t", "\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h6 id=\"features-title\">Features</h6>\n\t\t\t\t\t\t\t<div class=\"product-detail\">\n\t\t\t\t\t\t\t\t", "\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<app-button name=\"ADD TO CAR\" ></app-button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -29848,8 +29848,14 @@ function _templateObject2() {
   return data;
 }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["<div id=\"main-container\" >\n            <div id=\"left-container\" >\n                <img id=\"image\" src=", "  />\n                <div id=\"name\">", "</div>\n            </div>\n            <div id=\"right-container\">\n                <div id=\"quantity\">\n                    <label for=\"select-quantity\">Qty: </label>\n                    <select name=\"select-quantity\">\n                        <option>1</option>\n                        <option>2</option>\n                        <option>3</option>\n                    </select>\n                </div>\n                <div id=\"size\">\n                    size: ", "\n                </div>\n                <div id=\"price\">\n                    $", "\n                </div>\n                <div id=\"icon\">\n                <paper-icon-button \n                    @click=", " \n                    icon=", "></paper-icon-button>\n                </div>\n            </div>\n        </div>"]);
+  var data = _taggedTemplateLiteral(["<div id=\"main-container\" >\n            <div id=\"left-container\" >\n                <img id=\"image\" src=", "  />\n                <div id=\"name\">", "</div>\n            </div>\n            <div id=\"right-container\">\n                <div id=\"quantity\">\n                    <label for=\"select-quantity\">Qty: </label>\n                    <select @change=", " name=\"select-quantity\">\n                        <option value=\"1\">1</option>\n                        <option value=\"2\">2</option>\n                        <option value=\"3\">3</option>\n                    </select>\n                </div>\n                <div id=\"size\">\n                    size: ", "\n                </div>\n                <div id=\"price\">\n                    $", "\n                </div>\n                <div id=\"icon\">\n                <paper-icon-button \n                    @click=", " \n                    icon=", "></paper-icon-button>\n                </div>\n            </div>\n        </div>"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -29894,15 +29900,28 @@ var CartItem = /*#__PURE__*/function (_LitElement) {
   _createClass(CartItem, [{
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject(), this.image, this.name, this.size, this.price, this.dispatch, this.icon);
+      var _this = this;
+
+      return (0, _litElement.html)(_templateObject(), this.image, this.name, function (_ref) {
+        var target = _ref.target;
+        return _this.dispatch(_this.quantityEvent, target.value);
+      }, this.size, this.price, function () {
+        return _this.dispatch(_this.event);
+      }, this.icon);
     }
   }, {
     key: "dispatch",
-    value: function dispatch() {
-      this.dispatchEvent(new CustomEvent(this.event, {
+    value: function dispatch(event) {
+      for (var _len = arguments.length, rest = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        rest[_key - 1] = arguments[_key];
+      }
+
+      this.dispatchEvent(new CustomEvent(event, {
         bubbles: true,
         composed: true,
-        detail: this.index
+        detail: _objectSpread({
+          index: this.index
+        }, rest)
       }));
     }
   }], [{
@@ -29920,6 +29939,9 @@ var CartItem = /*#__PURE__*/function (_LitElement) {
         },
         quantity: {
           type: Number
+        },
+        quantityEvent: {
+          type: String
         },
         size: {
           type: String
@@ -29961,7 +29983,7 @@ require("./app-button");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n        :host {\n            font-family: 'Roboto', 'Noto', sans-serif;\n            width: 100%\n        }\n        #main-container {\n            width: 100%;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n        #cart-items-container {\n            width: 60%;\n        }\n        .header {\n            text-align: center;\n        }\n        .title {\n            margin: 0 0 4px 0;\n            font-size: 1.3em;\n            font-weight: 500;\n        }\n        .gray-text {\n            font-size: 13px;\n            line-height: 1.5;\n            color: #757575;\n        }\n        .footer {\n            display: flex;\n            width: 60%;\n            justify-content: flex-end;\n            align-items: center;\n        }\n        .total {\n            font-size: 13px;\n            line-height: 1.5;\n            margin-right: 2rem\n        }\n        "]);
+  var data = _taggedTemplateLiteral(["\n        :host {\n            font-family: 'Roboto', 'Noto', sans-serif;\n            width: 100%\n        }\n        #main-container {\n            width: 100%;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n        #cart-items-container {\n            width: 60%;\n        }\n        .header {\n            text-align: center;\n        }\n        .title {\n            margin: 0 0 4px 0;\n            font-size: 1.3em;\n            font-weight: 500;\n        }\n        .gray-text {\n            font-size: 13px;\n            line-height: 1.5;\n            color: #757575;\n        }\n        .footer {\n            display: flex;\n            width: 60%;\n            justify-content: flex-end;\n            align-items: center;\n        }\n        .total {\n            font-size: 13px;\n            line-height: 1.5;\n            margin-right: 2rem\n        }\n        @media (max-width: 550px) {\n            #cart-items-container {\n                width: 90%;\n            }\n        }\n        "]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -29970,8 +29992,14 @@ function _templateObject3() {
   return data;
 }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n                    <cart-item\n                    .image=", "\n                    .name=", "\n                    .productId=", "\n                    .quantity=", "\n                    .size=", "\n                    .price=", "\n                    .icon=", "\n                    .event=", "\n                    .index=", "></cart-item>\n                "]);
+  var data = _taggedTemplateLiteral(["\n                    <cart-item\n                    .image=", "\n                    .name=", "\n                    .productId=", "\n                    .quantity=", "\n                    .quantityEvent=", "\n                    .size=", "\n                    .price=", "\n                    .icon=", "\n                    .event=", "\n                    .index=", "></cart-item>\n                "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -29981,7 +30009,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["<div id=\"main-container\">\n            <div class=\"header\">\n                <div class=\"title\">Your Cart</div>\n                <div class=\"gray-text\">(", " items)</div>\n            </div>\n            <div id=\"cart-items-container\" @icon-clicked=", ">\n                ", "\n            </div>\n            <div class=\"footer\">\n                <div class=\"total\">Total: $", "</div>\n                <app-button name=\"Checkout\"></app-button>\n            </div>\n        </div>"]);
+  var data = _taggedTemplateLiteral(["<div id=\"main-container\">\n            <div class=\"header\">\n                <div class=\"title\">Your Cart</div>\n                <div class=\"gray-text\">(", " items)</div>\n            </div>\n            <div id=\"cart-items-container\" \n            @icon-clicked=", "\n            @quantity-changed=", ">\n                ", "\n            </div>\n            <div class=\"footer\">\n                <div class=\"total\">Total: $", "</div>\n                <app-button name=\"Checkout\"></app-button>\n            </div>\n        </div>"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -30051,6 +30079,7 @@ var AppCart = /*#__PURE__*/function (_LitElement) {
       name: "Anvil L/S Crew Neck - Grey",
       productId: 1,
       quantity: 1,
+      quantityEvent: 'quantity-changed',
       size: 'M',
       price: 22.15,
       icon: 'clear',
@@ -30060,6 +30089,7 @@ var AppCart = /*#__PURE__*/function (_LitElement) {
       name: "Anvil L/S Crew Neck - Grey",
       productId: 1,
       quantity: 1,
+      quantityEvent: 'quantity-changed',
       size: 'M',
       price: 22.15,
       icon: 'clear',
@@ -30075,25 +30105,36 @@ var AppCart = /*#__PURE__*/function (_LitElement) {
   _createClass(AppCart, [{
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject(), this.items.length, this.deleteItem, this.items.map(function (item, index) {
-        return (0, _litElement.html)(_templateObject2(), item.image, item.name, item.productId, item.quantity, item.size, item.price, item.icon, item.event, index);
+      return (0, _litElement.html)(_templateObject(), this.items.length, this._deleteItem, this._quantityChanged, this.items.map(function (item, index) {
+        return (0, _litElement.html)(_templateObject2(), item.image, item.name, item.productId, item.quantity, item.quantityEvent, item.size, item.price, item.icon, item.event, index);
       }), this.total);
     }
   }, {
     key: "getTotal",
     value: function getTotal(items) {
-      return items.reduce(function (acc, cv) {
+      return Number(items.reduce(function (acc, cv) {
         return acc + cv;
-      }, 0);
+      }, 0).toFixed(2));
     }
   }, {
-    key: "deleteItem",
-    value: function deleteItem(_ref) {
+    key: "_deleteItem",
+    value: function _deleteItem(_ref) {
       var detail = _ref.detail;
-      this.items.splice(detail, 1);
-      console.log(this.items);
+      this.items.splice(detail.index, 1);
       this.total = this.getTotal(this.items.map(function (item) {
-        return item.price;
+        return item.price * item.quantity;
+      }));
+    }
+  }, {
+    key: "_quantityChanged",
+    value: function _quantityChanged(_ref2) {
+      var detail = _ref2.detail;
+      // console.log(detail);
+      this.items.splice(detail.index, 1, _objectSpread(_objectSpread({}, this.items[detail.index]), {}, {
+        quantity: Number(detail["0"])
+      }));
+      this.total = this.getTotal(this.items.map(function (item) {
+        return item.price * item.quantity;
       }));
     }
   }], [{
@@ -30376,7 +30417,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n        <div class=\"main-container\">\n            <div class=\"head\">CHECKOUT</div>\n            <div class=\"form-container\" @input-changed=", ">\n                <div class=\"horizontal-container\">\n                    <div class=\"sub-container\">\n                        <h4>Account information</h4>\n                        <app-input\n                        name=\"email\"\n                        label=\"Email\"\n                        id=\"email\",\n                        type=\"text\"\n                        event=\"input-changed\"></app-input>\n                        <app-input\n                        name=\"phone\"\n                        label=\"Phone Number\"\n                        id=\"phone\"\n                        type=\"number\"\n                        event=\"input-changed\"></app-input>\n                        <h4>Shipping Address</h4>\n                        <app-input\n                        name=\"address\"\n                        label=\"Address\"\n                        id=\"address\"\n                        type=\"text\"\n                        event=\"input-changed\"></app-input>\n                        <app-input\n                        name=\"city\"\n                        label=\"City\"\n                        id=\"city\"\n                        type=\"text\"\n                        event=\"input-changed\"></app-input>\n                        <div class=\"form-container\">\n                            <div class=\"horizontal-container\">\n                                <div class=\"sub-container\">\n                                    <app-input\n                                    name=\"state\"\n                                    label=\"State/Province\"\n                                    id=\"state\"\n                                    type=\"text\"\n                                    event=\"input-changed\"></app-input>\n                                </div>\n                            </div>\n                            <div class=\"horizontal-container\">\n                                <div class=\"sub-container\">\n                                    <app-input\n                                    name=\"cp\"\n                                    label=\"Zip/Postal Code\"\n                                    id=\"cp\"\n                                    type=\"number\"\n                                    event=\"input-changed\"></app-input>\n                                </div>\n                            </div>\n                        </div>\n                        <app-select\n                        name=\"country\"\n                        label=\"Country\"\n                        id=\"country\"\n                        event=\"input-changed\"\n                        .options=", "></app-select>\n                    </div>\n                </div>\n                <div class=\"horizontal-container\">\n                    <div class=\"sub-container\">\n                        <h4>Payment Method</h4>\n                        <app-input\n                        name=\"card-holder\"\n                        label=\"Card Holder Name\"\n                        id=\"card-holder\"\n                        type=\"text\"\n                        event=\"input-changed\"></app-input>\n                        <app-input\n                        name=\"card\"\n                        label=\"Card Number\"\n                        id=\"card\"\n                        type=\"number\"\n                        event=\"input-changed\"></app-input>\n                        <div class=\"form-container\">\n                            <div class=\"horizontal-container\">\n                                <div class=\"sub-container\">\n                                    <app-select\n                                    name=\"cardMonth\"\n                                    label=\"Expiry\"\n                                    id=\"cardMonth\"\n                                    event=\"input-changed\"\n                                    .options=", "></app-select>\n                                </div>\n                            </div>\n                            <div class=\"horizontal-container\">\n                                <div class=\"sub-container\">\n                                <app-select\n                                    name=\"cardyear\"\n                                    label=\"Year\"\n                                    id=\"cardYear\"\n                                    event=\"input-changed\"\n                                    .options=", "></app-select>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"form-container\">\n                            <div class=\"horizontal-container\">\n                                <div class=\"sub-container\">\n                                    <app-input\n                                    name=\"cvv\"\n                                    label=\"CVV\"\n                                    id=\"cvv\"\n                                    type=\"number\"\n                                    event=\"input-changed\"></app-input>\n                                </div>\n                            </div>\n                        </div>\n                        <h4>Order Summary</h4>\n                        <div class=\"summary\" >\n                            <ul>\n                                ", "\n                            </ul>\n                        </div>\n                        <app-button name=\"PlACE ORDER\" @click=", "></app-button>\n                    </div>\n                </div>\n            </div>\n        </div>"]);
+  var data = _taggedTemplateLiteral(["\n        <div class=\"main-container\">\n            <div class=\"head\">CHECKOUT</div>\n            <div class=\"form-container\" @input-changed=", ">\n                <div class=\"horizontal-container\">\n                    <div class=\"sub-container\">\n                        <h4>Account information</h4>\n                        <app-input\n                        name=\"email\"\n                        label=\"Email\"\n                        id=\"email\",\n                        type=\"text\"\n                        event=\"input-changed\"></app-input>\n                        <app-input\n                        name=\"phone\"\n                        label=\"Phone Number\"\n                        id=\"phone\"\n                        type=\"number\"\n                        event=\"input-changed\"></app-input>\n                        <h4>Shipping Address</h4>\n                        <app-input\n                        name=\"address\"\n                        label=\"Address\"\n                        id=\"address\"\n                        type=\"text\"\n                        event=\"input-changed\"></app-input>\n                        <app-input\n                        name=\"city\"\n                        label=\"City\"\n                        id=\"city\"\n                        type=\"text\"\n                        event=\"input-changed\"></app-input>\n                        <div class=\"form-container\">\n                            <div class=\"horizontal-container\">\n                                <div class=\"sub-container\">\n                                    <app-input\n                                    name=\"state\"\n                                    label=\"State/Province\"\n                                    id=\"state\"\n                                    type=\"text\"\n                                    event=\"input-changed\"></app-input>\n                                </div>\n                            </div>\n                            <div class=\"horizontal-container\">\n                                <div class=\"sub-container\">\n                                    <app-input\n                                    name=\"cp\"\n                                    label=\"Zip/Postal Code\"\n                                    id=\"cp\"\n                                    type=\"number\"\n                                    event=\"input-changed\"></app-input>\n                                </div>\n                            </div>\n                        </div>\n                        <app-select\n                        name=\"country\"\n                        label=\"Country\"\n                        id=\"country\"\n                        event=\"input-changed\"\n                        .options=", "></app-select>\n                    </div>\n                </div>\n                <div class=\"horizontal-container\">\n                    <div class=\"sub-container\">\n                        <h4>Payment Method</h4>\n                        <app-input\n                        name=\"card-holder\"\n                        label=\"Card Holder Name\"\n                        id=\"card-holder\"\n                        type=\"text\"\n                        event=\"input-changed\"></app-input>\n                        <app-input\n                        name=\"card\"\n                        label=\"Card Number\"\n                        id=\"card\"\n                        type=\"number\"\n                        event=\"input-changed\"></app-input>\n                        <div class=\"form-container\">\n                            <div class=\"horizontal-container\">\n                                <div class=\"sub-container\">\n                                    <app-select\n                                    name=\"cardMonth\"\n                                    label=\"Expiry\"\n                                    id=\"cardMonth\"\n                                    event=\"input-changed\"\n                                    .options=", "></app-select>\n                                </div>\n                            </div>\n                            <div class=\"horizontal-container\">\n                                <div class=\"sub-container\">\n                                <app-select\n                                    name=\"cardyear\"\n                                    label=\"Year\"\n                                    id=\"cardYear\"\n                                    event=\"input-changed\"\n                                    .options=", "></app-select>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"form-container\">\n                            <div class=\"horizontal-container\">\n                                <div class=\"sub-container\">\n                                    <app-input\n                                    name=\"cvv\"\n                                    label=\"CVV\"\n                                    id=\"cvv\"\n                                    type=\"number\"\n                                    event=\"input-changed\"></app-input>\n                                </div>\n                            </div>\n                        </div>\n                        <h4>Order Summary</h4>\n                        <div class=\"summary\" >\n                            <ul>\n                                ", "\n                            </ul>\n                        </div>\n                        <div class=\"button\">\n                            <app-button name=\"PlACE ORDER\" @click=", "></app-button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -30386,7 +30427,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n        :host {\n            display: block;\n            font-family: Roboto, Noto, sans-serif;\n        }\n        .main-contaainer {\n            margin-top\n        }\n        .head {\n            text-align: center;\n        }\n        .form-container {\n            width: 100%;\n            display: flex;\n        }\n        .horizontal-container {\n            width: 50%;\n            max-width: 50%;\n        }\n        .sub-container {\n            padding: 1rem;\n        }\n        .summary li{\n            display: flex;\n            justify-content: space-between;\n        }\n        "]);
+  var data = _taggedTemplateLiteral(["\n        :host {\n            display: block;\n            font-family: Roboto, Noto, sans-serif;\n        }\n        .main-contaainer {\n            margin-top\n        }\n        .head {\n            text-align: center;\n        }\n        .form-container {\n            width: 100%;\n            display: flex;\n        }\n        .horizontal-container {\n            width: 50%;\n            max-width: 50%;\n        }\n        .sub-container {\n            padding: 1rem;\n        }\n        .summary li{\n            display: flex;\n            justify-content: space-between;\n        }\n        @media (max-width: 550px) {\n            h4 {\n                font-size: 1.3rem;\n            }\n            .main-container > .form-container {\n                flex-direction: column;\n            }\n            .main-container > .form-container .horizontal-container {\n                width: 100%;\n                max-width: 100%;\n            }\n            .button {\n                display: flex;\n                justify-content: center;\n            }\n        }\n        "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -30701,7 +30742,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54168" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49470" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

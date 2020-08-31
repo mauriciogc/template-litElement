@@ -25,6 +25,7 @@ class AppCart extends LitElement {
             name: "Anvil L/S Crew Neck - Grey",
             productId: 1,
             quantity: 1,
+            quantityEvent: 'quantity-changed',
             size: 'M',
             price: 22.15,
             icon: 'clear',
@@ -34,6 +35,7 @@ class AppCart extends LitElement {
             name: "Anvil L/S Crew Neck - Grey",
             productId: 1,
             quantity: 1,
+            quantityEvent: 'quantity-changed',
             size: 'M',
             price: 22.15,
             icon: 'clear',
@@ -82,6 +84,11 @@ class AppCart extends LitElement {
             line-height: 1.5;
             margin-right: 2rem
         }
+        @media (max-width: 550px) {
+            #cart-items-container {
+                width: 90%;
+            }
+        }
         `;
     }
 
@@ -91,13 +98,16 @@ class AppCart extends LitElement {
                 <div class="title">Your Cart</div>
                 <div class="gray-text">(${this.items.length} items)</div>
             </div>
-            <div id="cart-items-container" @icon-clicked=${this.deleteItem}>
+            <div id="cart-items-container" 
+            @icon-clicked=${this._deleteItem}
+            @quantity-changed=${this._quantityChanged}>
                 ${this.items.map((item, index) => html`
                     <cart-item
                     .image=${item.image}
                     .name=${item.name}
                     .productId=${item.productId}
                     .quantity=${item.quantity}
+                    .quantityEvent=${item.quantityEvent}
                     .size=${item.size}
                     .price=${item.price}
                     .icon=${item.icon}
@@ -113,13 +123,20 @@ class AppCart extends LitElement {
     }
     
     getTotal(items) {
-        return items.reduce((acc, cv) => acc + cv, 0);
+        return Number(items.reduce((acc, cv) => acc + cv, 0).toFixed(2));
     }
 
-    deleteItem({detail}) {
-        this.items.splice(detail, 1);
-        console.log(this.items);
-        this.total = this.getTotal(this.items.map(item => item.price));
+    _deleteItem({detail}) {
+        this.items.splice(detail.index, 1);
+        this.total = this.getTotal(this.items.map(item => item.price * item.quantity));
+    }
+    _quantityChanged({detail}) {
+        // console.log(detail);
+        this.items.splice(detail.index, 1, {
+            ...this.items[detail.index],
+            quantity: Number(detail["0"])
+        });
+        this.total = this.getTotal(this.items.map(item => item.price * item.quantity));
     }
 }
 customElements.define("app-cart", AppCart);

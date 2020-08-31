@@ -21,28 +21,28 @@ class AppHome extends LitElement {
 			title: "Men's Outerwear",
 			button: {
 				name: 'SHOP NOW',
-				event: 'ap-home-button-clicked'
+				event: 'app-home-button-clicked'
 			}
 		}, {
 			image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_outerwear.jpg',
 			title: "Ladies Outerwear",
 			button: {
 				name: 'SHOP NOW',
-				event: 'ap-home-button-clicked'
+				event: 'app-home-button-clicked'
 			}
 		}, {
 			image: 'https://shop.polymer-project.org/esm-bundled/images/mens_tshirts.jpg',
 			title: "Men's T-Shirts",
 			button: {
 				name: 'SHOP NOW',
-				event: 'ap-home-button-clicked'
+				event: 'app-home-button-clicked'
 			}
 		}, {
 			image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_tshirts.jpg',
 			title: "Ladies T-Shirts",
 			button: {
 				name: 'SHOP NOW',
-				event: 'ap-home-button-clicked'
+				event: 'app-home-button-clicked'
 			}
 		}]
 		this.appHomeA = {

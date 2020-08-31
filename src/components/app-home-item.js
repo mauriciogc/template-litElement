@@ -47,6 +47,20 @@ class AppHomeItem extends LitElement {
             position: relative;
             overflow: hidden;
         }
+
+        @media (max-width: 550px) {
+            #title {
+                font-size: 1.5rem;
+                font-weight: 300;
+            }
+            #image-container {
+                height: 200px;
+            }
+            .image {
+                height: 100%;
+                width: auto;
+            }
+        }
         `;
     }
 
@@ -61,7 +75,7 @@ class AppHomeItem extends LitElement {
         return html`
         <div id="main-container">
             <div id="image-container">
-                <img src=${this.image} >
+                <img class="image" src=${this.image} >
             </div>
             <div id="text-container">
                 <div id="title">${this.title}</div>
