@@ -36,9 +36,19 @@ class MenuLinks extends LitElement {
         <div id="main-container">
             ${typeof this.options === 'object' && this.options.length ? this.options.map(option => html`<menu-link 
             .name=${option.name}
-            .event=${option.event}></menu-link>`) : ''}
+            .linkId=${option.categoryId}
+            .event=${option.event}
+            @menu-link-clicked=${this._sendRoute}></menu-link>`) : ''}
         </div>
         `;
+    }
+
+    _sendRoute({detail}) {
+        this.dispatchEvent(new CustomEvent('route-change', {
+            bubbles: true,
+            composed: true,
+            detail: `products/${detail.linkId}`
+        }));
     }
 }
 

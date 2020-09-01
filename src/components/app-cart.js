@@ -117,7 +117,7 @@ class AppCart extends LitElement {
             </div>
             <div class="footer">
                 <div class="total">Total: $${this.total}</div>
-                <app-button name="Checkout"></app-button>
+                <app-button @click=${this._goToCheckout} name="Checkout"></app-button>
             </div>
         </div>`;
     }
@@ -131,12 +131,19 @@ class AppCart extends LitElement {
         this.total = this.getTotal(this.items.map(item => item.price * item.quantity));
     }
     _quantityChanged({detail}) {
-        // console.log(detail);
         this.items.splice(detail.index, 1, {
             ...this.items[detail.index],
             quantity: Number(detail["0"])
         });
         this.total = this.getTotal(this.items.map(item => item.price * item.quantity));
+    }
+
+    _goToCheckout() {
+        this.dispatchEvent(new CustomEvent('route-change', {
+            bubbles: true,
+            composed: true,
+            detail: 'purchase/checkout'
+        }))
     }
 }
 customElements.define("app-cart", AppCart);

@@ -47,12 +47,21 @@ class AppHeader extends LitElement {
                     .title=${this.title}
                     .leftIcon=${this.leftIcon}
                     .rightIcon=${this.rightIcon}
+                    @right-icon-clicked=${this._goToCart}
                     ></app-toolbar>
                     <menu-links 
                     .options=${this.menuOptions}></menu-links>
                 </div>
             </div>
             `;
+    }
+
+    _goToCart() {
+        this.dispatchEvent(new CustomEvent('route-change', {
+            bubbles: true,
+            composed: true,
+            detail: 'cart'
+        }))
     }
 }
 

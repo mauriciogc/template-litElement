@@ -40,6 +40,12 @@ class AppButton extends LitElement {
         }
         `;
     }
+
+    constructor() {
+        super();
+        this.name = '';
+        this.event = '';
+    }
     
 	render() {
 		return html`
@@ -50,10 +56,12 @@ class AppButton extends LitElement {
     }
     
     dispatch() {
-        this.dispatchEvent(new CustomEvent(this.event, {
-            bubbles: true,
-            composed: true
-        }));
+        if (this.event) {
+            this.dispatchEvent(new CustomEvent(this.event, {
+                bubbles: true,
+                composed: true
+            }));
+        }
     }
 }
 customElements.define("app-button", AppButton);

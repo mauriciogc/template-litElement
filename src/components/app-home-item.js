@@ -65,9 +65,13 @@ class AppHomeItem extends LitElement {
     }
 
     dispatch(eventName) {
+        // console.log(eventName, this.title.replace(/ /g, '-').replace(/'/g, '-'));
         this.dispatchEvent(new CustomEvent(eventName, {
             bubbles: true,
-            composed: true
+            composed: true,
+            detail: {
+                title: this.title.replace(/ /g, '-').replace(/'/g, '-').toLowerCase()
+            }
         }));
     }
 
@@ -81,7 +85,7 @@ class AppHomeItem extends LitElement {
                 <div id="title">${this.title}</div>
                 <app-button
                 .name=${this.button.name}
-                .event=${this.button.event}>
+                @click=${() => this.dispatch(this.button.event)}>
                 </app-button>
             </div>
         </div>

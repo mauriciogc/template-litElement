@@ -28501,6 +28501,9 @@ var MenuLink = /*#__PURE__*/function (_LitElement) {
         event: {
           type: String
         },
+        linkId: {
+          type: String
+        },
         active: {
           type: Boolean,
           reflect: true
@@ -28524,7 +28527,11 @@ var MenuLink = /*#__PURE__*/function (_LitElement) {
     value: function dispatch() {
       this.dispatchEvent(new CustomEvent(this.event, {
         bubbles: true,
-        composed: true
+        composed: true,
+        detail: {
+          name: this.name,
+          linkId: this.linkId
+        }
       }));
     }
   }, {
@@ -28557,7 +28564,7 @@ var _litElement = require("lit-element");
 require("./menu-link");
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["<menu-link \n            .name=", "\n            .event=", "></menu-link>"]);
+  var data = _taggedTemplateLiteral(["<menu-link \n            .name=", "\n            .linkId=", "\n            .event=", "\n            @menu-link-clicked=", "></menu-link>"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -28640,9 +28647,21 @@ var MenuLinks = /*#__PURE__*/function (_LitElement) {
   _createClass(MenuLinks, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       return (0, _litElement.html)(_templateObject2(), _typeof(this.options) === 'object' && this.options.length ? this.options.map(function (option) {
-        return (0, _litElement.html)(_templateObject3(), option.name, option.event);
+        return (0, _litElement.html)(_templateObject3(), option.name, option.categoryId, option.event, _this._sendRoute);
       }) : '');
+    }
+  }, {
+    key: "_sendRoute",
+    value: function _sendRoute(_ref) {
+      var detail = _ref.detail;
+      this.dispatchEvent(new CustomEvent('route-change', {
+        bubbles: true,
+        composed: true,
+        detail: "products/".concat(detail.linkId)
+      }));
     }
   }]);
 
@@ -28672,7 +28691,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n            <div id=\"main-container\">\n                <div id=\"sub-container\">\n                    <app-toolbar \n                    .title=", "\n                    .leftIcon=", "\n                    .rightIcon=", "\n                    ></app-toolbar>\n                    <menu-links \n                    .options=", "></menu-links>\n                </div>\n            </div>\n            "]);
+  var data = _taggedTemplateLiteral(["\n            <div id=\"main-container\">\n                <div id=\"sub-container\">\n                    <app-toolbar \n                    .title=", "\n                    .leftIcon=", "\n                    .rightIcon=", "\n                    @right-icon-clicked=", "\n                    ></app-toolbar>\n                    <menu-links \n                    .options=", "></menu-links>\n                </div>\n            </div>\n            "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -28743,7 +28762,16 @@ var AppHeader = /*#__PURE__*/function (_LitElement) {
   _createClass(AppHeader, [{
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject(), this.title, this.leftIcon, this.rightIcon, this.menuOptions);
+      return (0, _litElement.html)(_templateObject(), this.title, this.leftIcon, this.rightIcon, this._goToCart, this.menuOptions);
+    }
+  }, {
+    key: "_goToCart",
+    value: function _goToCart() {
+      this.dispatchEvent(new CustomEvent('route-change', {
+        bubbles: true,
+        composed: true,
+        detail: 'cart'
+      }));
     }
   }], [{
     key: "styles",
@@ -28764,7 +28792,7 @@ var _litElement = require("lit-element");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n        #shop-button {\n            background-color: #FFF;\n            border: none;\n        }\n        #shop-button:hover {\n            cursor: pointer;\n        }\n        #shop-button > * {\n            display: inline-block;\n            box-sizing: border-box;\n            border: 2px solid #000;\n            background-color: #FFF;\n            font-size: 14px;\n            font-weight: 500;\n            color: var(--app-primary-color);\n            margin: 0;\n            padding: 8px 44px;\n            text-align: center;\n            text-decoration: none;\n            text-transform: uppercase;\n            border-radius: 0;\n            outline: none;\n        }\n        @media (max-width: 550px) {\n            #shop-button > * {\n                font-size: 1.3rem;\n            }\n        }\n        "]);
+  var data = _taggedTemplateLiteral(["\n        <button id=\"shop-button\" @click=", ">\n            <div>", "</div>\n        </button>\n        "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -28774,7 +28802,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n        <button id=\"shop-button\" @click=", ">\n            <div>", "</div>\n        </button>\n        "]);
+  var data = _taggedTemplateLiteral(["\n        #shop-button {\n            background-color: #FFF;\n            border: none;\n        }\n        #shop-button:hover {\n            cursor: pointer;\n        }\n        #shop-button > * {\n            display: inline-block;\n            box-sizing: border-box;\n            border: 2px solid #000;\n            background-color: #FFF;\n            font-size: 14px;\n            font-weight: 500;\n            color: var(--app-primary-color);\n            margin: 0;\n            padding: 8px 44px;\n            text-align: center;\n            text-decoration: none;\n            text-transform: uppercase;\n            border-radius: 0;\n            outline: none;\n        }\n        @media (max-width: 550px) {\n            #shop-button > * {\n                font-size: 1.3rem;\n            }\n        }\n        "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -28810,26 +28838,7 @@ var AppButton = /*#__PURE__*/function (_LitElement) {
 
   var _super = _createSuper(AppButton);
 
-  function AppButton() {
-    _classCallCheck(this, AppButton);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(AppButton, [{
-    key: "render",
-    value: function render() {
-      return (0, _litElement.html)(_templateObject(), this.dispatch, this.name);
-    }
-  }, {
-    key: "dispatch",
-    value: function dispatch() {
-      this.dispatchEvent(new CustomEvent(this.event, {
-        bubbles: true,
-        composed: true
-      }));
-    }
-  }], [{
+  _createClass(AppButton, null, [{
     key: "properties",
     get: function get() {
       return {
@@ -28844,7 +28853,35 @@ var AppButton = /*#__PURE__*/function (_LitElement) {
   }, {
     key: "styles",
     get: function get() {
-      return (0, _litElement.css)(_templateObject2());
+      return (0, _litElement.css)(_templateObject());
+    }
+  }]);
+
+  function AppButton() {
+    var _this;
+
+    _classCallCheck(this, AppButton);
+
+    _this = _super.call(this);
+    _this.name = '';
+    _this.event = '';
+    return _this;
+  }
+
+  _createClass(AppButton, [{
+    key: "render",
+    value: function render() {
+      return (0, _litElement.html)(_templateObject2(), this.dispatch, this.name);
+    }
+  }, {
+    key: "dispatch",
+    value: function dispatch() {
+      if (this.event) {
+        this.dispatchEvent(new CustomEvent(this.event, {
+          bubbles: true,
+          composed: true
+        }));
+      }
     }
   }]);
 
@@ -28872,7 +28909,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n        <div id=\"main-container\">\n            <div id=\"image-container\">\n                <img class=\"image\" src=", " >\n            </div>\n            <div id=\"text-container\">\n                <div id=\"title\">", "</div>\n                <app-button\n                .name=", "\n                .event=", ">\n                </app-button>\n            </div>\n        </div>\n        "]);
+  var data = _taggedTemplateLiteral(["\n        <div id=\"main-container\">\n            <div id=\"image-container\">\n                <img class=\"image\" src=", " >\n            </div>\n            <div id=\"text-container\">\n                <div id=\"title\">", "</div>\n                <app-button\n                .name=", "\n                @click=", ">\n                </app-button>\n            </div>\n        </div>\n        "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -28943,15 +28980,23 @@ var AppHomeItem = /*#__PURE__*/function (_LitElement) {
   _createClass(AppHomeItem, [{
     key: "dispatch",
     value: function dispatch(eventName) {
+      // console.log(eventName, this.title.replace(/ /g, '-').replace(/'/g, '-'));
       this.dispatchEvent(new CustomEvent(eventName, {
         bubbles: true,
-        composed: true
+        composed: true,
+        detail: {
+          title: this.title.replace(/ /g, '-').replace(/'/g, '-').toLowerCase()
+        }
       }));
     }
   }, {
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject(), this.image, this.title, this.button.name, this.button.event);
+      var _this2 = this;
+
+      return (0, _litElement.html)(_templateObject(), this.image, this.title, this.button.name, function () {
+        return _this2.dispatch(_this2.button.event);
+      });
     }
   }], [{
     key: "styles",
@@ -28994,7 +29039,7 @@ function _templateObject2() {
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\t\t\t<div>\n\t\t\t\t", "\n\t\t\t</div>\n\t\t"]);
+  var data = _taggedTemplateLiteral(["\n\t\t\t<div @app-home-button-clicked=", ">\n\t\t\t\t", "\n\t\t\t</div>\n\t\t"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -29089,47 +29134,25 @@ var AppHome = /*#__PURE__*/function (_LitElement) {
         event: 'app-home-button-clicked'
       }
     }];
-    _this.appHomeA = {
-      image: 'https://shop.polymer-project.org/esm-bundled/images/mens_outerwear.jpg',
-      title: "Men's Outerwear",
-      button: {
-        name: 'SHOP NOW',
-        event: 'ap-home-button-clicked'
-      }
-    };
-    _this.appHomeB = {
-      image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_outerwear.jpg',
-      title: "Ladies Outerwear",
-      button: {
-        name: 'SHOP NOW',
-        event: 'ap-home-button-clicked'
-      }
-    };
-    _this.appHomeC = {
-      image: 'https://shop.polymer-project.org/esm-bundled/images/mens_tshirts.jpg',
-      title: "Men's T-Shirts",
-      button: {
-        name: 'SHOP NOW',
-        event: 'ap-home-button-clicked'
-      }
-    };
-    _this.appHomeD = {
-      image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_tshirts.jpg',
-      title: "Ladies T-Shirts",
-      button: {
-        name: 'SHOP NOW',
-        event: 'ap-home-button-clicked'
-      }
-    };
     return _this;
   }
 
   _createClass(AppHome, [{
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject(), _typeof(this.appHomeItems) === 'object' && this.appHomeItems.length ? this.appHomeItems.map(function (appHomeItem) {
+      return (0, _litElement.html)(_templateObject(), this._sendRoute, _typeof(this.appHomeItems) === 'object' && this.appHomeItems.length ? this.appHomeItems.map(function (appHomeItem) {
         return (0, _litElement.html)(_templateObject2(), appHomeItem.image, appHomeItem.title, appHomeItem.button);
       }) : '');
+    }
+  }, {
+    key: "_sendRoute",
+    value: function _sendRoute(_ref) {
+      var detail = _ref.detail;
+      this.dispatchEvent(new CustomEvent('route-change', {
+        bubbles: true,
+        composed: true,
+        detail: "products/".concat(detail.title)
+      }));
     }
   }], [{
     key: "styles",
@@ -29431,7 +29454,7 @@ var _litElement = require("lit-element");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n        :host {\n            display: flex;\n            justify-content: center;\n        }\n        #main-container {\n            max-width: 300px;\n        }\n        #text-container {\n            font-size: 12px;\n            text-align: center;\n            margin-top: 2rem;\n        }\n        #name {\n            font-weight: bold;\n        }\n        #price {\n            color: #757575;\n            margin: 0.5rem 0rem;\n        }\n        "]);
+  var data = _taggedTemplateLiteral(["\n        :host {\n            display: flex;\n            justify-content: center;\n        }\n        #main-container {\n            max-width: 300px;\n            cursor: pointer;\n        }\n        #text-container {\n            font-size: 12px;\n            text-align: center;\n            margin-top: 2rem;\n        }\n        #name {\n            font-weight: bold;\n        }\n        #price {\n            color: #757575;\n            margin: 0.5rem 0rem;\n        }\n        "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -29441,7 +29464,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n            <div id=\"main-container\">\n                <div id=\"image-container\">\n                    <img src=\"", "\" >\n                </div>\n                <div id=\"text-container\">\n                    <div id='name'>\n                        ", "\n                    </div>\n                    <div id='price'>\n                        $", "\n                    </div>\n                </div>\n            </div>\n            "]);
+  var data = _taggedTemplateLiteral(["\n            <div id=\"main-container\" @click=", ">\n                <div id=\"image-container\">\n                    <img src=\"", "\" >\n                </div>\n                <div id=\"text-container\">\n                    <div id='name'>\n                        ", "\n                    </div>\n                    <div id='price'>\n                        $", "\n                    </div>\n                </div>\n            </div>\n            "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -29489,6 +29512,9 @@ var CatalogItem = /*#__PURE__*/function (_LitElement) {
         },
         price: {
           type: Number
+        },
+        productId: {
+          type: Number
         }
       };
     }
@@ -29509,7 +29535,19 @@ var CatalogItem = /*#__PURE__*/function (_LitElement) {
   _createClass(CatalogItem, [{
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject(), this.image, this.name, this.price);
+      return (0, _litElement.html)(_templateObject(), this.dispatch, this.image, this.name, this.price);
+    }
+  }, {
+    key: "dispatch",
+    value: function dispatch() {
+      this.dispatchEvent(new CustomEvent('catalog-item-clicked', {
+        bubbles: true,
+        composed: true,
+        detail: {
+          title: this.name.replace(/ /g, '-').replace(/'/g, '-').toLowerCase(),
+          id: this.productId
+        }
+      }));
     }
   }], [{
     key: "styles",
@@ -29542,7 +29580,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n                <catalog-item\n                class=\"catalog-item\"\n                .image=", "\n                .name=", "\n                .price=", "></catalog-item>\n                "]);
+  var data = _taggedTemplateLiteral(["\n                <catalog-item\n                class=\"catalog-item\"\n                .image=", "\n                .name=", "\n                .price=", "\n                .productId=", "></catalog-item>\n                "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -29552,7 +29590,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n        <div id=\"main-container\">\n            <div id='image-container'>\n                <img class=\"image\" src=\"", "\" >\n            </div>\n            <div id=\"text-container\">\n                <div id=\"title\">", "</div>\n                <div id=\"items-number\">(", ") items</div>\n            </div>\n            <div id=\"items-container\">\n                ", "\n            </div>\n        </div>\n        "]);
+  var data = _taggedTemplateLiteral(["\n        <div id=\"main-container\">\n            <div id='image-container'>\n                <img class=\"image\" src=\"", "\" >\n            </div>\n            <div id=\"text-container\">\n                <div id=\"title\">", "</div>\n                <div id=\"items-number\">(", ") items</div>\n            </div>\n            <div id=\"items-container\" @catalog-item-clicked=", ">\n                ", "\n            </div>\n        </div>\n        "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -29614,31 +29652,37 @@ var AppCatalog = /*#__PURE__*/function (_LitElement) {
     _this.title = "Men's Outerwear";
     _this.image = 'https://shop.polymer-project.org/esm-bundled/images/mens_outerwear.jpg';
     _this.catalogItems = [{
+      id: 1,
       name: "Men's Tech Shell Full-Zip",
       price: 50.20,
       image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
       url: '/'
     }, {
+      id: 1,
       name: "Men's Tech Shell Full-Zip",
       price: 50.20,
       image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
       url: '/'
     }, {
+      id: 'men-s-tech-shell-full-zip',
       name: "Men's Tech Shell Full-Zip",
       price: 50.20,
       image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
       url: '/'
     }, {
+      id: 1,
       name: "Men's Tech Shell Full-Zip",
       price: 50.20,
       image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
       url: '/'
     }, {
+      id: 1,
       name: "Men's Tech Shell Full-Zip",
       price: 50.20,
       image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
       url: '/'
     }, {
+      id: 1,
       name: "Men's Tech Shell Full-Zip",
       price: 50.20,
       image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
@@ -29650,8 +29694,24 @@ var AppCatalog = /*#__PURE__*/function (_LitElement) {
   _createClass(AppCatalog, [{
     key: "render",
     value: function render() {
-      return (0, _litElement.html)(_templateObject(), this.image, this.title, this.catalogItems.length, this.catalogItems.map(function (item) {
-        return (0, _litElement.html)(_templateObject2(), item.image, item.name, item.price);
+      return (0, _litElement.html)(_templateObject(), this.image, this.title, this.catalogItems.length, this._sendData, this.catalogItems.map(function (item) {
+        return (0, _litElement.html)(_templateObject2(), item.image, item.name, item.price, item.id);
+      }));
+    }
+  }, {
+    key: "_sendData",
+    value: function _sendData(_ref) {
+      var detail = _ref.detail;
+
+      this._sendRoute(detail.title);
+    }
+  }, {
+    key: "_sendRoute",
+    value: function _sendRoute(title) {
+      this.dispatchEvent(new CustomEvent('route-change', {
+        bubbles: true,
+        composed: true,
+        detail: "product-detail/".concat(title)
       }));
     }
   }], [{
@@ -30009,7 +30069,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["<div id=\"main-container\">\n            <div class=\"header\">\n                <div class=\"title\">Your Cart</div>\n                <div class=\"gray-text\">(", " items)</div>\n            </div>\n            <div id=\"cart-items-container\" \n            @icon-clicked=", "\n            @quantity-changed=", ">\n                ", "\n            </div>\n            <div class=\"footer\">\n                <div class=\"total\">Total: $", "</div>\n                <app-button name=\"Checkout\"></app-button>\n            </div>\n        </div>"]);
+  var data = _taggedTemplateLiteral(["<div id=\"main-container\">\n            <div class=\"header\">\n                <div class=\"title\">Your Cart</div>\n                <div class=\"gray-text\">(", " items)</div>\n            </div>\n            <div id=\"cart-items-container\" \n            @icon-clicked=", "\n            @quantity-changed=", ">\n                ", "\n            </div>\n            <div class=\"footer\">\n                <div class=\"total\">Total: $", "</div>\n                <app-button @click=", " name=\"Checkout\"></app-button>\n            </div>\n        </div>"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -30107,7 +30167,7 @@ var AppCart = /*#__PURE__*/function (_LitElement) {
     value: function render() {
       return (0, _litElement.html)(_templateObject(), this.items.length, this._deleteItem, this._quantityChanged, this.items.map(function (item, index) {
         return (0, _litElement.html)(_templateObject2(), item.image, item.name, item.productId, item.quantity, item.quantityEvent, item.size, item.price, item.icon, item.event, index);
-      }), this.total);
+      }), this.total, this._goToCheckout);
     }
   }, {
     key: "getTotal",
@@ -30129,12 +30189,20 @@ var AppCart = /*#__PURE__*/function (_LitElement) {
     key: "_quantityChanged",
     value: function _quantityChanged(_ref2) {
       var detail = _ref2.detail;
-      // console.log(detail);
       this.items.splice(detail.index, 1, _objectSpread(_objectSpread({}, this.items[detail.index]), {}, {
         quantity: Number(detail["0"])
       }));
       this.total = this.getTotal(this.items.map(function (item) {
         return item.price * item.quantity;
+      }));
+    }
+  }, {
+    key: "_goToCheckout",
+    value: function _goToCheckout() {
+      this.dispatchEvent(new CustomEvent('route-change', {
+        bubbles: true,
+        composed: true,
+        detail: 'purchase/checkout'
       }));
     }
   }], [{
@@ -30560,7 +30628,7 @@ var _litElementRouter = require("lit-element-router");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n\t\t:host {\n\t\t\tmax-width: 100%;\n\t\t}\n\t\t.half-width {\n\t\t\twidth: 50%;\n\t\t}\n\t\t"]);
+  var data = _taggedTemplateLiteral(["\n\t\t:host {\n\t\t\tmax-width: 100%;\n\t\t}\n\t\t.main-container {\n\t\t\twidth: 100%;\n\t\t\tmax-width: 100%;\n\t\t}\n\t\t"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -30570,7 +30638,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\t\t\t<app-header \n\t\t\t\t.title=", "\n\t\t\t\t.leftIcon=", "\n\t\t\t\t.rightIcon=", "\n\t\t\t\t.menuOptions=", ">\n\t\t\t</app-header>\n\t\t\t<app-router active-route=", ">\n\t\t\t\t<app-home route='home'></app-home>\n\t\t\t\t<app-catalog \n\t\t\t\troute='products'></app-catalog>\n\t\t\t\t<app-detail\n\t\t\t\troute='product_detail'></app-detail>\n\t\t\t\t<app-cart route=\"cart\"></app-cart>\n\t\t\t\t<app-checkout route=\"checkout\"></app-checkout>\n\t\t\t</app-router>\n\t\t"]);
+  var data = _taggedTemplateLiteral(["\n\t\t\t<div class=\"main-container\" @route-change=", ">\n\t\t\t\t<app-header \n\t\t\t\t\t.title=", "\n\t\t\t\t\t.leftIcon=", "\n\t\t\t\t\t.rightIcon=", "\n\t\t\t\t\t.menuOptions=", ">\n\t\t\t\t</app-header>\n\t\t\t\t<app-router active-route=", ">\n\t\t\t\t\t<app-home route='home'></app-home>\n\t\t\t\t\t<app-catalog \n\t\t\t\t\troute='products'></app-catalog>\n\t\t\t\t\t<app-detail\n\t\t\t\t\troute='product_detail'></app-detail>\n\t\t\t\t\t<app-cart route=\"cart\"></app-cart>\n\t\t\t\t\t<app-checkout route=\"checkout\"></app-checkout>\n\t\t\t\t</app-router>\n\t\t\t</div>\n\t\t"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -30648,16 +30716,20 @@ var MyApp = /*#__PURE__*/function (_router) {
       },
       menuOptions: [{
         name: "Men's Outerwear",
-        event: 'link-1'
+        categoryId: 'men-s-outerwear',
+        event: 'menu-link-clicked'
       }, {
         name: 'Ladies Outerwear',
-        event: 'link-2'
+        categoryId: 'ladies-outerwear',
+        event: 'menu-link-clicked'
       }, {
         name: "Men's T-Shirts",
-        event: 'link-3'
+        categoryId: 'men-s-t-shirts',
+        event: 'menu-link-clicked'
       }, {
         name: 'Ladies T-Shirts',
-        event: 'link-4'
+        categoryId: 'ladies-t-shirts',
+        event: 'lmenu-link-clicked'
       }]
     };
     return _this;
@@ -30678,7 +30750,14 @@ var MyApp = /*#__PURE__*/function (_router) {
     key: "render",
     // Cada componente no debe recibir ropiedades
     value: function render() {
-      return (0, _litElement.html)(_templateObject(), this.appHeaderProps.title, this.appHeaderProps.leftIcon, this.appHeaderProps.rightIcon, this.appHeaderProps.menuOptions, this.route);
+      return (0, _litElement.html)(_templateObject(), this._changeRoute, this.appHeaderProps.title, this.appHeaderProps.leftIcon, this.appHeaderProps.rightIcon, this.appHeaderProps.menuOptions, this.route);
+    }
+  }, {
+    key: "_changeRoute",
+    value: function _changeRoute(_ref) {
+      var detail = _ref.detail;
+      console.log('hehehex');
+      window.location.assign("".concat(window.location.origin, "/").concat(detail));
     }
   }], [{
     key: "routes",

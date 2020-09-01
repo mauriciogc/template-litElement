@@ -5,6 +5,7 @@ class MenuLink extends LitElement {
         return {
             name: {Type: String},
             event: {type: String},
+            linkId: {type: String},
             active: {
                 type: Boolean,
                 reflect: true
@@ -37,7 +38,11 @@ class MenuLink extends LitElement {
     dispatch() {
         this.dispatchEvent(new CustomEvent(this.event, {
             bubbles: true,
-            composed: true
+            composed: true,
+            detail: {
+                name: this.name,
+                linkId: this.linkId 
+            }
         }));
     }
 

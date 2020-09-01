@@ -17,31 +17,37 @@ class AppCatalog extends LitElement {
         this.title = "Men's Outerwear";
         this.image = 'https://shop.polymer-project.org/esm-bundled/images/mens_outerwear.jpg';
         this.catalogItems = [{
+            id: 1,
             name: "Men's Tech Shell Full-Zip",
             price: 50.20,
             image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
             url: '/',
         }, {
+            id: 1,
             name: "Men's Tech Shell Full-Zip",
             price: 50.20,
             image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
             url: '/',
         }, {
+            id: 'men-s-tech-shell-full-zip',
             name: "Men's Tech Shell Full-Zip",
             price: 50.20,
             image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
             url: '/',
         }, {
+            id: 1,
             name: "Men's Tech Shell Full-Zip",
             price: 50.20,
             image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
             url: '/',
         }, {
+            id: 1,
             name: "Men's Tech Shell Full-Zip",
             price: 50.20,
             image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
             url: '/',
         }, {
+            id: 1,
             name: "Men's Tech Shell Full-Zip",
             price: 50.20,
             image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-15068B.jpg',
@@ -117,17 +123,30 @@ class AppCatalog extends LitElement {
                 <div id="title">${this.title}</div>
                 <div id="items-number">(${this.catalogItems.length}) items</div>
             </div>
-            <div id="items-container">
+            <div id="items-container" @catalog-item-clicked=${this._sendData}>
                 ${this.catalogItems.map(item => html`
                 <catalog-item
                 class="catalog-item"
                 .image=${item.image}
                 .name=${item.name}
-                .price=${item.price}></catalog-item>
+                .price=${item.price}
+                .productId=${item.id}></catalog-item>
                 `)}
             </div>
         </div>
         `;
-	}
+    }
+
+    _sendData({detail}) {
+        this._sendRoute(detail.title)
+    }
+    
+    _sendRoute(title) {
+        this.dispatchEvent(new CustomEvent('route-change', {
+            bubbles: true,
+            composed: true,
+            detail: `product-detail/${title}`
+        }))
+    }
 }
 customElements.define("app-catalog", AppCatalog);

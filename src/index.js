@@ -38,16 +38,20 @@ class MyApp extends router(LitElement) {
 			},
 			menuOptions: [{
 				name: "Men's Outerwear",
-				event: 'link-1'
+				categoryId: 'men-s-outerwear',
+				event: 'menu-link-clicked'
 			}, {
 				name: 'Ladies Outerwear',
-				event: 'link-2'
+				categoryId: 'ladies-outerwear',
+				event: 'menu-link-clicked'
 			}, {
 				name: "Men's T-Shirts",
-				event: 'link-3'
+				categoryId: 'men-s-t-shirts',
+				event: 'menu-link-clicked'
 			}, {
 				name: 'Ladies T-Shirts',
-				event: 'link-4'
+				categoryId: 'ladies-t-shirts',
+				event: 'lmenu-link-clicked'
 			}]
 		};
 	}
@@ -89,30 +93,38 @@ class MyApp extends router(LitElement) {
 		:host {
 			max-width: 100%;
 		}
-		.half-width {
-			width: 50%;
+		.main-container {
+			width: 100%;
+			max-width: 100%;
 		}
 		`;
 	}
 	// Cada componente no debe recibir ropiedades
 	render() {
 		return html`
-			<app-header 
-				.title=${this.appHeaderProps.title}
-				.leftIcon=${this.appHeaderProps.leftIcon}
-				.rightIcon=${this.appHeaderProps.rightIcon}
-				.menuOptions=${this.appHeaderProps.menuOptions}>
-			</app-header>
-			<app-router active-route=${this.route}>
-				<app-home route='home'></app-home>
-				<app-catalog 
-				route='products'></app-catalog>
-				<app-detail
-				route='product_detail'></app-detail>
-				<app-cart route="cart"></app-cart>
-				<app-checkout route="checkout"></app-checkout>
-			</app-router>
+			<div class="main-container" @route-change=${this._changeRoute}>
+				<app-header 
+					.title=${this.appHeaderProps.title}
+					.leftIcon=${this.appHeaderProps.leftIcon}
+					.rightIcon=${this.appHeaderProps.rightIcon}
+					.menuOptions=${this.appHeaderProps.menuOptions}>
+				</app-header>
+				<app-router active-route=${this.route}>
+					<app-home route='home'></app-home>
+					<app-catalog 
+					route='products'></app-catalog>
+					<app-detail
+					route='product_detail'></app-detail>
+					<app-cart route="cart"></app-cart>
+					<app-checkout route="checkout"></app-checkout>
+				</app-router>
+			</div>
 		`;
+	}
+
+	_changeRoute({detail}) {
+		console.log('hehehex')
+		window.location.assign(`${window.location.origin}/${detail}`);
 	}
 }
 customElements.define("my-app", MyApp);

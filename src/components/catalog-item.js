@@ -5,7 +5,8 @@ class CatalogItem extends LitElement {
 		return {
             image: {type: String},
             name: {type: String},
-            price: {type: Number}
+            price: {type: Number},
+            productId: {type: Number}
 		};
     }
     
@@ -24,6 +25,7 @@ class CatalogItem extends LitElement {
         }
         #main-container {
             max-width: 300px;
+            cursor: pointer;
         }
         #text-container {
             font-size: 12px;
@@ -41,7 +43,7 @@ class CatalogItem extends LitElement {
     }
 	render() {
         return html`
-            <div id="main-container">
+            <div id="main-container" @click=${this.dispatch}>
                 <div id="image-container">
                     <img src="${this.image}" >
                 </div>
@@ -55,6 +57,17 @@ class CatalogItem extends LitElement {
                 </div>
             </div>
             `;
-	}
+    }
+    
+    dispatch() {
+        this.dispatchEvent(new CustomEvent('catalog-item-clicked', {
+            bubbles: true,
+            composed: true,
+            detail: {
+                title: this.name.replace(/ /g, '-').replace(/'/g, '-').toLowerCase(),
+                id: this.productId
+            }
+        }));
+    }
 }
 customElements.define("catalog-item", CatalogItem);
