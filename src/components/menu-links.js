@@ -1,4 +1,5 @@
 import {LitElement, html, css} from 'lit-element';
+import {repeat} from 'lit-html/directives/repeat'
 
 // import components
 import './menu-link';
@@ -34,7 +35,8 @@ class MenuLinks extends LitElement {
     render() {
         return html`
         <div id="main-container">
-            ${typeof this.options === 'object' && this.options.length ? this.options.map(option => html`<menu-link 
+            ${typeof this.options === 'object' && this.options.length ? repeat(this.options, item => item.name,
+                (option, index) => html`<menu-link 
             .name=${option.name}
             .linkId=${option.categoryId}
             .event=${option.event}

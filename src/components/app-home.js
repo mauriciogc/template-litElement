@@ -1,4 +1,5 @@
 import { LitElement, html, css } from "lit-element";
+import {repeat} from 'lit-html/directives/repeat';
 
 // Import components
 import './app-home-item';
@@ -7,16 +8,13 @@ import './app-home-item';
 class AppHome extends LitElement {
 	static get properties() {
 		return {
-			appHomeA: {type: Object},
-			appHomeB: {type: Object},
-			appHomeC: {type: Object},
-			appHomeD: {type: Object},
 			appHomeItems : {type: Object}
 		};
 	}
 	constructor() {
 		super();
 		this.appHomeItems = [{
+			id: 1,
 			image: 'https://shop.polymer-project.org/esm-bundled/images/mens_outerwear.jpg',
 			title: "Men's Outerwear",
 			button: {
@@ -24,6 +22,7 @@ class AppHome extends LitElement {
 				event: 'app-home-button-clicked'
 			}
 		}, {
+			id: 2,
 			image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_outerwear.jpg',
 			title: "Ladies Outerwear",
 			button: {
@@ -31,6 +30,7 @@ class AppHome extends LitElement {
 				event: 'app-home-button-clicked'
 			}
 		}, {
+			id: 3,
 			image: 'https://shop.polymer-project.org/esm-bundled/images/mens_tshirts.jpg',
 			title: "Men's T-Shirts",
 			button: {
@@ -38,6 +38,7 @@ class AppHome extends LitElement {
 				event: 'app-home-button-clicked'
 			}
 		}, {
+			id: 4,
 			image: 'https://shop.polymer-project.org/esm-bundled/images/ladies_tshirts.jpg',
 			title: "Ladies T-Shirts",
 			button: {
@@ -66,7 +67,8 @@ class AppHome extends LitElement {
 		return html`
 			<div @app-home-button-clicked=${this._sendRoute}>
 				${typeof this.appHomeItems === 'object' && this.appHomeItems.length ? 
-				this.appHomeItems.map(appHomeItem => html`
+				repeat(this.appHomeItems, (item) => item.id,
+				(appHomeItem, index) => html`
 				<app-home-item
 				.image=${appHomeItem.image}
 				.title=${appHomeItem.title}

@@ -61,9 +61,7 @@ class CartItem extends LitElement {
                 <div id="quantity">
                     <label for="select-quantity">Qty: </label>
                     <select @change=${({target}) => this.dispatch(this.quantityEvent, target.value)} name="select-quantity">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                        ${this._printOptions()}
                     </select>
                 </div>
                 <div id="size">
@@ -79,6 +77,14 @@ class CartItem extends LitElement {
                 </div>
             </div>
         </div>`;
+    }
+
+    _printOptions() {
+        const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        return options.map(option => {
+            if (option == this.quantity) return html`<option value=${option} selected> ${option}</option>`;
+            return html`<option value=${option}> ${option}</option>`;
+        });
     }
     
     dispatch(event, ...rest) {

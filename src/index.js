@@ -8,6 +8,7 @@ import './components/app-catalog';
 import './components/app-detail';
 import './components/app-cart';
 import './components/app-checkout';
+import './components/app-navigator';
 
 // Import tools
 import { router } from 'lit-element-router';
@@ -20,6 +21,7 @@ class MyApp extends router(LitElement) {
 			params: { type: Object },
 			query: { type: Object },
 			appCatalogA: {type: Object},
+			cartItems: {type: Array}
 		};
 	}
 
@@ -51,9 +53,11 @@ class MyApp extends router(LitElement) {
 			}, {
 				name: 'Ladies T-Shirts',
 				categoryId: 'ladies-t-shirts',
-				event: 'lmenu-link-clicked'
+				event: 'menu-link-clicked'
 			}]
 		};
+		const sessionCartItems = window.sessionStorage.getItem('cart-items');
+		this.cartItems = sessionCartItems ? JSON.parse(sessionCartItems) : [];
 	}
 
 	// ------------------------
@@ -102,29 +106,58 @@ class MyApp extends router(LitElement) {
 	// Cada componente no debe recibir ropiedades
 	render() {
 		return html`
-			<div class="main-container" @route-change=${this._changeRoute}>
-				<app-header 
-					.title=${this.appHeaderProps.title}
-					.leftIcon=${this.appHeaderProps.leftIcon}
-					.rightIcon=${this.appHeaderProps.rightIcon}
-					.menuOptions=${this.appHeaderProps.menuOptions}>
-				</app-header>
-				<app-router active-route=${this.route}>
-					<app-home route='home'></app-home>
-					<app-catalog 
-					route='products'></app-catalog>
-					<app-detail
-					route='product_detail'></app-detail>
-					<app-cart route="cart"></app-cart>
-					<app-checkout route="checkout"></app-checkout>
-				</app-router>
+			<div class="main-container"
+			@increase-quantity-cart-item=${this._increaseQuantityCartItem}
+			@add-cart-item=${this._addCartItem}
+			@save-cart-status=${this._saveCartItems}>
+				<app-navigator>
+					<app-header 
+						.title=${this.appHeaderProps.title}
+						.leftIcon=${this.appHeaderProps.leftIcon}
+						.rightIcon=${this.appHeaderProps.rightIcon}
+						.menuOptions=${this.appHeaderProps.menuOptions}>
+					</app-header>
+					<app-router active-route=${this.route}>
+						<app-home route='home'></app-home>
+						<app-catalog 
+						route='products'></app-catalog>
+						<app-detail
+						route='product_detail'
+						.cartItems=${this.cartItems}></app-detail>
+						<app-cart route="cart"
+						.items=${this.cartItems}></app-cart>
+						<app-checkout route="checkout"></app-checkout>
+					</app-router>
+				</app-navigator>
 			</div>
 		`;
 	}
 
-	_changeRoute({detail}) {
-		console.log('hehehex')
-		window.location.assign(`${window.location.origin}/${detail}`);
+	_increaseQuantityCartItem({detail: item}) {
+		this.cartItems[item.index] = {
+			...this.cartItems[item.index],
+			quantity: this.cartItems[item.index].quantity + item.quantity
+		}
+		this.cartItems = [...this.cartItems];
+		this._saveCartItems();
+		this.requestUpdate();
 	}
+
+	_addCartItem({detail: item}) {
+		this.cartItems.push(item);
+		this.cartItems = [...this.cartItems];
+		this._saveCartItems();
+		this.requestUpdate();
+	}
+
+	_saveCartItems() {
+		window.sessionStorage.setItem('cart-items', JSON.stringify(this.cartItems));
+	}
+
+	// _deleteCartItem({detail: itemIndex}) {
+	// 	console.log('delete item', this.cartItems);
+	// 	this.cartItems.splice(itemIndex, 1);
+	// 	this.requestUpdate();
+	// }
 }
 customElements.define("my-app", MyApp);

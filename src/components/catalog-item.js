@@ -45,7 +45,7 @@ class CatalogItem extends LitElement {
         return html`
             <div id="main-container" @click=${this.dispatch}>
                 <div id="image-container">
-                    <img src="${this.image}" >
+                    <img src="${this.image}" .alt=${`${this.name}-image`}>
                 </div>
                 <div id="text-container">
                     <div id='name'>

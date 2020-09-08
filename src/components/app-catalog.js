@@ -1,4 +1,6 @@
 import { LitElement, html, css } from "lit-element";
+import {ifDefined} from 'lit-html/directives/if-defined'
+import {repeat} from 'lit-html/directives/repeat'
 
 // Import components
 import './catalog-item';
@@ -117,14 +119,15 @@ class AppCatalog extends LitElement {
         return html`
         <div id="main-container">
             <div id='image-container'>
-                <img class="image" src="${this.image}" >
+                <img class="image" src="${this.image}" alt="category image">
             </div>
             <div id="text-container">
                 <div id="title">${this.title}</div>
                 <div id="items-number">(${this.catalogItems.length}) items</div>
             </div>
             <div id="items-container" @catalog-item-clicked=${this._sendData}>
-                ${this.catalogItems.map(item => html`
+                ${repeat(this.catalogItems, catalogItem => catalogItem.id,
+                (item, index) => html`
                 <catalog-item
                 class="catalog-item"
                 .image=${item.image}

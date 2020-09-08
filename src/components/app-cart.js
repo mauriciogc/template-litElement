@@ -1,4 +1,6 @@
 import { LitElement, html, css } from "lit-element";
+import {repeat} from 'lit-html/directives/repeat';
+import {nothing} from 'lit-html'
 
 import './cart-item';
 import './app-button';
@@ -6,43 +8,15 @@ import './app-button';
 class AppCart extends LitElement {
 	static get properties() {
 		return {
-            items: {type: Array, hasChanged(newVal, oldval) {
-                if(JSON.stringify(oldval) === JSON.stringify(newVal)) {
-                    return false;
-                }
-                // console.log(oldval, newVal);
-                // this.getTotal(newVal.map(item => item.price));
-                return true;
-            }},
+            items: {type: Array},
             total: {type: Number},
 		};
     }
 
     constructor() {
         super();
-        const items = [{
-            image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-14154B.jpg',
-            name: "Anvil L/S Crew Neck - Grey",
-            productId: 1,
-            quantity: 1,
-            quantityEvent: 'quantity-changed',
-            size: 'M',
-            price: 22.15,
-            icon: 'clear',
-            event: 'icon-clicked'
-        }, {
-            image: 'https://shop.polymer-project.org/esm-bundled/data/images/10-14154B.jpg',
-            name: "Anvil L/S Crew Neck - Grey",
-            productId: 1,
-            quantity: 1,
-            quantityEvent: 'quantity-changed',
-            size: 'M',
-            price: 22.15,
-            icon: 'clear',
-            event: 'icon-clicked'
-        }];
-        this.items = items;
-        this.total = this.getTotal(items.map(item => item.price));
+        this.items = [];
+        this.total = this.getTotal();
     }
     
     static get styles() {
@@ -93,6 +67,7 @@ class AppCart extends LitElement {
     }
 
 	render() {
+        this.total = this.getTotal();
 		return html`<div id="main-container">
             <div class="header">
                 <div class="title">Your Cart</div>
@@ -101,7 +76,8 @@ class AppCart extends LitElement {
             <div id="cart-items-container" 
             @icon-clicked=${this._deleteItem}
             @quantity-changed=${this._quantityChanged}>
-                ${this.items.map((item, index) => html`
+                ${repeat(this.items, item => item.productId,
+                    (item, index) => html`
                     <cart-item
                     .image=${item.image}
                     .name=${item.name}
@@ -116,26 +92,30 @@ class AppCart extends LitElement {
                 `)}
             </div>
             <div class="footer">
-                <div class="total">Total: $${this.total}</div>
-                <app-button @click=${this._goToCheckout} name="Checkout"></app-button>
+                ${this.items.length ? html`<div class="total">Total: $${this.total}</div>
+                <app-button @click=${this._goToCheckout} name="Checkout"></app-button>`: nothing}
             </div>
         </div>`;
     }
     
-    getTotal(items) {
-        return Number(items.reduce((acc, cv) => acc + cv, 0).toFixed(2));
+    getTotal() {
+        return this.items ? Number(this.items.reduce((acc, cv) => acc + (cv.price * cv.quantity), 0).toFixed(2)) : 0;
     }
 
     _deleteItem({detail}) {
         this.items.splice(detail.index, 1);
-        this.total = this.getTotal(this.items.map(item => item.price * item.quantity));
+        this.total = this.getTotal();
+        this.dispatchEvent(new CustomEvent('save-cart-status', {
+            bubbles: true,
+            composed: true
+        }));
     }
     _quantityChanged({detail}) {
         this.items.splice(detail.index, 1, {
             ...this.items[detail.index],
             quantity: Number(detail["0"])
         });
-        this.total = this.getTotal(this.items.map(item => item.price * item.quantity));
+        this.total = this.getTotal();
     }
 
     _goToCheckout() {
@@ -143,7 +123,7 @@ class AppCart extends LitElement {
             bubbles: true,
             composed: true,
             detail: 'purchase/checkout'
-        }))
+        }));
     }
 }
 customElements.define("app-cart", AppCart);

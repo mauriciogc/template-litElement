@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "lit-element";
 
 import './app-button';
+import './app-cart-manager';
 
 class AppDetail extends LitElement {
 	static get properties() {
@@ -14,11 +15,13 @@ class AppDetail extends LitElement {
 			quantity: {type: Number},
 			description: {type: String},
 			features: {type: Object},
+			cartItems: {type: Array}
 		};
 	}
 
 	constructor() {
 		super();
+		this.productId = 1;
 		this.image = 'https://shop.polymer-project.org/esm-bundled/data/images/10-14154A.jpg';
 		this.name = "Anvil L/S Crew Neck - Grey";
 		this.price = 22.15;
@@ -127,20 +130,13 @@ class AppDetail extends LitElement {
 		`;
 	}
 
-	quantitySelected(origin) {
-		this.quantity = Number(origin.options[origin.selectedIndex].value);
-	}
-
-	sizeSelected(origin) {
-		this.size = origin.options[origin.selectedIndex].value
-	}
-
 	render() {
 		return html`
 		<div id="main-container">
+		<app-cart-manager .cartItems=${this.cartItems}>
 			<div id="container">
 				<div id="image-container">
-					<img id="image" src=${this.image} >
+					<img id="image" src=${this.image} alt="product-image">
 				</div>
 				<div id="detail-container">
 					<div id="form-container">
@@ -148,15 +144,15 @@ class AppDetail extends LitElement {
 						<div id="price">$${this.price}</div>
 						<div id="form">
 							<label for="size">Size:</label>
-							<select name="size" @change=${(e) => {this.sizeSelected(e.target)}}>
+							<select name="size" @change=${(e) => {this._sizeSelected(e.target)}}>
 								<option value="XS">XS</option>
 								<option value="S">S</option>
 								<option value="M">M</option>
-								<option value="XS">L</option>
-								<option value="XS">XL</option>
+								<option value="L">L</option>
+								<option value="XL">XL</option>
 							</select>
 							<label for="quantity">Quantity: </label>
-							<select name="quantity" @change=${(e) =>this.quantitySelected(e.target)}>
+							<select name="quantity" @change=${(e) =>this._quantitySelected(e.target)}>
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -178,12 +174,39 @@ class AppDetail extends LitElement {
 								</ul>` : 'Info not available'}
 							</div>
 						</div>
-						<app-button name="ADD TO CAR" ></app-button>
+						<app-button class="add-button" @click=${this._sendCartItem} name="ADD TO CART" ></app-button>
 					</div>
 				</div>
 			</div>
+		</app-cart-manager>
 		</div>
 		`;
+	}
+
+	_quantitySelected(origin) {
+		this.quantity = Number(origin.options[origin.selectedIndex].value);
+	}
+
+	_sizeSelected(origin) {
+		this.size = origin.options[origin.selectedIndex].value
+	}
+
+	_sendCartItem() {
+		this.shadowRoot.querySelector('.add-button').dispatchEvent(new CustomEvent('send-cart-item', {
+			bubbles: true,
+			composed: true,
+			detail: {
+				name: this.name,
+				price: this.price,
+				quantity: this.quantity,
+				image: this.image,
+				productId: this.productId,
+				quantityEvent: 'quantity-changed',
+				icon: 'clear',
+				event: 'icon-clicked',
+				size: this.size
+			}
+		}));
 	}
 }
 
